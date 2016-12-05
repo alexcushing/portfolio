@@ -26,12 +26,9 @@ const Skills = () => {
                   JQuery
                 </li>
                 <li>
-                  CSS3 / SASS / SCSS
+                  CSS3 / SASS 
                 </li>
 
-                  <li>
-                    Django
-                  </li>
                 <li>
                   HTML5
                 </li>
