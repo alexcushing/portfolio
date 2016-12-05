@@ -5,7 +5,7 @@ import App from './App';
 import Home from './Home';
 import Skills from './Skills';
 import Projects from './Projects';
-import './index.css';
+require ('./style.scss');
 
 
 render((

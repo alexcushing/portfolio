@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Home from './Home';
 import Skills from './Skills';
 import Projects from './Projects';
-import './App.css';
 
 class App extends Component {
   render() {
