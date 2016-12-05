@@ -1,0 +1,223 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  max-width: 100%;
+  width: 100%;
+}
+
+.icon {
+  color: #f7f7f9;
+  width: 40px;
+  height: 40px;
+}
+.icon:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.limitWidth {
+  width: 70%;
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+
+.skillTitle {
+  display: flex;
+  align-self: center;
+  justify-content: initial;
+}
+
+.expert:hover {
+  cursor: pointer;
+  color: #5cb85c;
+}
+
+.proficient:hover {
+  cursor: pointer;
+  color: #0099CC;
+}
+
+.competent:hover {
+  cursor: pointer;
+  color: #FF8800;
+}
+
+.list {
+  display: block;
+  height: 1px;
+  border: 0;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.exp {
+  border-top: 1px solid #5cb85c;
+}
+
+.prof {
+  border-top: 1px solid #0099CC;
+}
+
+.comp {
+  border-top: 1px solid #FF8800;
+}
+
+.flex-Outer {
+  margin: 20px;
+  display: flex;
+  align-content: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.mainSkills {
+  margin: 20px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.noBorder {
+  border: none !important;
+  outline: none !important;
+}
+
+.skillBlock {
+  float: right;
+}
+.skillBlock ul {
+  padding: 0;
+  list-style: none;
+}
+
+.homeBox {
+  height: 75vh !important;
+  background-color: #f7f7f9;
+}
+
+.indexCard {
+  height: 150px !important;
+  animation: fadeInUp .3s;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  animation: fadeInUp .3s;
+  border-radius: 50%;
+}
+
+.card-header {
+  background: white !important;
+}
+
+.introduction {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nameIntro {
+  margin-top: 25px;
+}
+
+.linksPanel {
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+  animation: fadeInUp .5s;
+}
+
+.fa-github {
+  color: black !important;
+}
+
+.linkBasic, .gitLink, .linkedInLink {
+  display: inline;
+  text-decoration: none;
+  width: calc(100%/3);
+  color: black;
+  margin: 0;
+}
+.linkBasic:hover, .gitLink:hover, .linkedInLink:hover {
+  text-decoration: none;
+}
+.linkBasic:focus, .gitLink:focus, .linkedInLink:focus {
+  text-decoration: none;
+}
+.linkBasic:active, .gitLink:active, .linkedInLink:active {
+  text-decoration: none;
+}
+
+.gitLink {
+  width: 33%;
+    
+    float: left;
+}
+.gitLink:hover {
+  color: #FF8800;
+}
+
+.linkedInLink {
+  float: right;
+  text-align: right;
+}
+.linkedInLink:hover {
+  color: #0099CC;
+}
+
+.emailPanel {
+  position: absolute;
+  left: 0;
+  color: grey;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+.emailPanel:hover {
+  color: #CC0000;
+  cursor: default;
+}
+
+.namePanel {
+  display: inline-flex;
+  padding: 25px;
+  margin: 5px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+.expert {
+  animation: fadeInUp .4s;
+}
+
+.proficient {
+  animation: fadeInUp .5s;
+}
+
+.competent {
+  animation: fadeInUp .6s;
+}
