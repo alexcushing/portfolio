@@ -40,7 +40,11 @@ body{
   width: 100%;
 }
 
-
+.nav-link{
+    &:hover{
+        text-decoration: none !important;
+    }
+}
 
 .icon{
   color: $grey;
