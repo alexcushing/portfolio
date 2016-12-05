@@ -1,10 +1,7 @@
 import React from 'react';
 import { ReactDOM, render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router'
-import App from './App';
-import Home from './Home';
-import Skills from './Skills';
-import Projects from './Projects';
+
 
 var Nav = React.createClass({
   render: function () {
@@ -15,24 +12,19 @@ var Nav = React.createClass({
           <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
             <ul className="nav navbar-nav">
               <li className="nav-item active">
-                <a>
-                  <Link to="/">
+                  <Link className="nav-link" to="/">
                     Home
-                  </Link></a>
+                  </Link>
               </li>
               <li className="nav-item">
-                <a href="#">
-                  <Link to="/skills">
+                  <Link className="nav-link" to="/skills">
                     Skills
                   </Link>
-                </a>
               </li>
               <li className="nav-item">
-                <a href="#">
-                  <Link to="/projects">
+                  <Link className="nav-link" to="/projects">
                     Projects
                   </Link>
-                </a>
               </li>
             </ul>
           </nav>
@@ -46,24 +38,19 @@ var Nav = React.createClass({
           <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
             <ul className="nav navbar-nav">
               <li className="nav-item">
-                <a>
-                  <Link to="/">
+                  <Link className="nav-link" to="/">
                     Home
-                  </Link></a>
+                  </Link>
               </li>
               <li className="nav-item active">
-                <a href="#">
-                  <Link to="/skills">
+                  <Link className="nav-link" to="/skills">
                     Skills
                   </Link>
-                </a>
               </li>
               <li className="nav-item">
-                <a href="#">
-                  <Link to="/projects">
+                  <Link className="nav-link" to="/projects">
                     Projects
                   </Link>
-                </a>
               </li>
             </ul>
           </nav>
@@ -76,24 +63,19 @@ var Nav = React.createClass({
           <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
             <ul className="nav navbar-nav">
               <li className="nav-item">
-                <a>
-                  <Link to="/">
+                  <Link className="nav-link" to="/">
                     Home
-                  </Link></a>
+                  </Link>
               </li>
               <li className="nav-item">
-                <a href="#">
-                  <Link to="/skills">
+                  <Link className="nav-link" to="/skills">
                     Skills
                   </Link>
-                </a>
               </li>
               <li className="nav-item active">
-                <a href="#">
-                  <Link to="/projects">
+                  <Link className="nav-link" to="/projects">
                     Projects
                   </Link>
-                </a>
               </li>
             </ul>
           </nav>
