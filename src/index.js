@@ -10,9 +10,8 @@ import './index.css';
 
 render((
   <Router history={browserHistory}>
-    <Route path="/" component={App}>
+      <Route path="/" component={App} />
       <Route path="skills" component={Skills}/>
       <Route path="projects" component={Projects}/>
-    </Route>
   </Router>
 ), document.getElementById('root'))
