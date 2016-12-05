@@ -98,6 +98,9 @@ body{
 
 .exp{
     border-top: 1px solid $green;
+}   
+.expRed{
+    border-top: 1px solid $red;
 }    
 .prof{
     border-top: 1px solid $blue;
@@ -252,4 +255,41 @@ body{
 
 .competent{
   animation: fadeInUp .6s;
+}
+
+.projTitle{
+    margin: 20px;
+}
+.projDesc{
+    margin: 20px;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    width: 400px;
+    height: 250px;
+    background-color: lightgrey;
+}
+
+.flex-item {
+    width: 30%;
+    //border-radius: 5px;
+    height: 30%;
+    margin: calc(10% / 3);
+    padding:calc(10% / 3);
+    overflow-y: auto;
+}
+
+.fione{
+     border: 1px solid $blue;
+    animation: fadeInUp .4s;
+}
+.fitwo{
+     border: 1px solid $red;
+    animation: fadeInUp .5s;
+}.fithree{
+     border: 1px solid $green;
+    animation: fadeInUp .6s;
 }
