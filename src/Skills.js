@@ -7,7 +7,7 @@ const Skills = () => {
   return (
       <div>
         <Nav name="Skills" />
-        <div className="panel panel-default limitWidth homeBox">
+        <div className="panel panel-default limitWidth homeBox projFix">
           <div className="mainSkills">
             <div className="skillBlock">
               <h2 className="skillTitle expert">Expert</h2>
