@@ -26,6 +26,16 @@ $red: #CC0000;
 }
 
 @keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -93,18 +103,18 @@ body{
     height: 1px;
     border: 0;
     margin: 1em 0;
-    padding: 0;     
+    padding: 0;
 }
 
 .exp{
     border-top: 1px solid $green;
-}   
+}
 .expRed{
     border-top: 1px solid $red;
-}    
+}
 .prof{
     border-top: 1px solid $blue;
-}    
+}
 .comp{
     border-top: 1px solid $orange;
 }
@@ -276,7 +286,7 @@ body{
 .flex-item {
     width: 30%;
     //border-radius: 5px;
-    height: 30%;
+    height: 85%;
     margin: calc(10% / 3);
     padding:calc(10% / 3);
     overflow-y: auto;
@@ -284,12 +294,68 @@ body{
 
 .fione{
      border: 1px solid $blue;
-    animation: fadeInUp .4s;
+     animation: fadeIn .4s;
 }
 .fitwo{
      border: 1px solid $red;
-    animation: fadeInUp .5s;
+     animation: fadeIn .5s;
 }.fithree{
      border: 1px solid $green;
-    animation: fadeInUp .6s;
+     animation: fadeIn .6s;
+}
+
+.TitleOne{
+  animation: fadeInUp .4s;
+
+}
+.TitleTwo{
+  animation: fadeInUp .5s;
+
+}
+.TitleThree{
+  animation: fadeInUp .6s;
+
+}
+
+.projectsTitle{
+  font-weight: bold;
+  cursor: default;
+}
+
+.seamlessLink{
+  color: $blue;
+  &:hover{
+    text-decoration: none;
+    color: $red;
+  }
+  &:active{
+    text-decoration: none;
+    color: $red;
+  }
+  &:focus{
+    text-decoration: none;
+    color: $red;
+  }
+}
+
+.seamlessLinkPrism{
+  color: $black;
+  &:hover{
+    cursor: pointer !important;
+    text-decoration: none;
+    color: $blue;
+  }
+  &:active{
+    text-decoration: none;
+    color: $blue;
+  }
+  &:focus{
+    text-decoration: none;
+    color: $blue;
+  }
+  .projectsTitle{
+    &:hover{
+      cursor: pointer !important;
+    }
+  }
 }

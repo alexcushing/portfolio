@@ -26605,22 +26605,6 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _App = __webpack_require__(233);
-
-	var _App2 = _interopRequireDefault(_App);
-
-	var _Home = __webpack_require__(234);
-
-	var _Home2 = _interopRequireDefault(_Home);
-
-	var _Skills = __webpack_require__(237);
-
-	var _Skills2 = _interopRequireDefault(_Skills);
-
-	var _Projects = __webpack_require__(238);
-
-	var _Projects2 = _interopRequireDefault(_Projects);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Nav = _react2.default.createClass({
@@ -26642,39 +26626,27 @@
 	              'li',
 	              { className: 'nav-item active' },
 	              _react2.default.createElement(
-	                'a',
-	                null,
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/' },
-	                  'Home'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/' },
+	                'Home'
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'nav-item' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/skills' },
-	                  'Skills'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/skills' },
+	                'Skills'
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'nav-item' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/projects' },
-	                  'Projects'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/projects' },
+	                'Projects'
 	              )
 	            )
 	          )
@@ -26694,39 +26666,27 @@
 	              'li',
 	              { className: 'nav-item' },
 	              _react2.default.createElement(
-	                'a',
-	                null,
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/' },
-	                  'Home'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/' },
+	                'Home'
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'nav-item active' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/skills' },
-	                  'Skills'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/skills' },
+	                'Skills'
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'nav-item' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/projects' },
-	                  'Projects'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/projects' },
+	                'Projects'
 	              )
 	            )
 	          )
@@ -26746,39 +26706,27 @@
 	              'li',
 	              { className: 'nav-item' },
 	              _react2.default.createElement(
-	                'a',
-	                null,
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/' },
-	                  'Home'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/' },
+	                'Home'
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'nav-item' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/skills' },
-	                  'Skills'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/skills' },
+	                'Skills'
 	              )
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'nav-item active' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/projects' },
-	                  'Projects'
-	                )
+	                _reactRouter.Link,
+	                { className: 'nav-link', to: '/projects' },
+	                'Projects'
 	              )
 	            )
 	          )
@@ -26860,12 +26808,7 @@
 	            _react2.default.createElement(
 	              'li',
 	              null,
-	              'CSS3 / SASS / SCSS'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Django'
+	              'CSS3 / SASS'
 	            ),
 	            _react2.default.createElement(
 	              'li',
@@ -26963,6 +26906,10 @@
 
 	var _navBar2 = _interopRequireDefault(_navBar);
 
+	var _Contact = __webpack_require__(235);
+
+	var _Contact2 = _interopRequireDefault(_Contact);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Projects = function Projects() {
@@ -26973,7 +26920,80 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'panel panel-default limitWidth homeBox' },
-	      'Projects'
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'panel-body flex-Outer' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'flex-item fione' },
+	          _react2.default.createElement(
+	            'a',
+	            { target: '_blank', href: 'http://prsmphoto.com', className: 'seamlessLinkPrism' },
+	            _react2.default.createElement(
+	              'h3',
+	              { className: 'projectsTitle TitleOne' },
+	              'Prism'
+	            )
+	          ),
+	          _react2.default.createElement('hr', { className: 'line prof' }),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '"Prism" is a photography based web application with an emphasis on a minimalistic aesthetic, tag based search functionality, and a portfolio style user profile. The goal is to provide photographers with a professional and interactive environment to share their work and connect with others.'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'projectFooter' },
+	            'Technologies',
+	            _react2.default.createElement('br', null),
+	            ' MongoDB, Express.js, JQuery, Node.js, Vanilla JS, CSS'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'flex-item fitwo' },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'projectsTitle TitleTwo' },
+	            'Admin Portal'
+	          ),
+	          _react2.default.createElement('hr', { className: 'line expRed' }),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'While working as a co-op at ',
+	            _react2.default.createElement(
+	              'a',
+	              { target: '_blank', href: 'https://www.putnam.com/', className: 'seamlessLink' },
+	              'Putnam Investments'
+	            ),
+	            ' I worked on a single page application for administration users to access multiple tables. The page displayed necessary information cleanly, and allowed administrative users could edit, add, or delete information seamlessly.'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'projectFooter' },
+	            'Technologies',
+	            _react2.default.createElement('br', null),
+	            ' JavaScript, Django, Python, CSS'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'flex-item fithree' },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'projectsTitle TitleThree' },
+	            'fill in'
+	          ),
+	          _react2.default.createElement('hr', { className: 'line exp' }),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '"Prism" is a photography based web application with an emphasis on a minimalistic aesthetic, tag based search functionality, and a portfolio style user profile. The goal is to provide photographers with a professional and interactive environment to share their work and connect with others.'
+	          )
+	        ),
+	        _react2.default.createElement(_Contact2.default, null)
+	      )
 	    )
 	  );
 	};
@@ -27015,7 +27035,7 @@
 
 
 	// module
-	exports.push([module.id, "@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    color: white;\n    cursor: pointer; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n\n.expert:hover {\n  cursor: pointer;\n  color: #5cb85c; }\n\n.proficient:hover {\n  cursor: pointer;\n  color: #0099CC; }\n\n.competent:hover {\n  cursor: pointer;\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.introduction {\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 100%;\n  display: inline-block;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: absolute;\n  left: 0;\n  color: grey;\n  bottom: 10px;\n  text-align: center;\n  width: 100%; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: default; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n", ""]);
+	exports.push([module.id, "@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    color: white;\n    cursor: pointer; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n\n.expert:hover {\n  cursor: pointer;\n  color: #5cb85c; }\n\n.proficient:hover {\n  cursor: pointer;\n  color: #0099CC; }\n\n.competent:hover {\n  cursor: pointer;\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.introduction {\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 100%;\n  display: inline-block;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: absolute;\n  left: 0;\n  color: grey;\n  bottom: 10px;\n  text-align: center;\n  width: 100%; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: default; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  width: 30%;\n  height: 85%;\n  margin: calc(10% / 3);\n  padding: calc(10% / 3);\n  overflow-y: auto; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n", ""]);
 
 	// exports
 

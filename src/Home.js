@@ -18,7 +18,7 @@ const Home = () => {
             </h2>
             <div>
               <blockquote>
-                <p>Web Developer</p>
+                <p>Web & Software Developer</p>
                 <footer>Student <cite title="school">UMass Lowell</cite></footer>
               </blockquote>
           </div>
