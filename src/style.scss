@@ -6,99 +6,97 @@ $blue: #0099CC;
 $green: #5cb85c;
 $orange: #FF8800;
 $red: #CC0000;
-
-
 @mixin size($width, $height: $width) {
-      width: $width;
-      height: $height;
+    width: $width;
+    height: $height;
 }
+
 
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 10%, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 10%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-body{
-  max-width: 100%;
-  width: 100%;
+body {
+    max-width: 100%;
+    width: 100%;
 }
 
-.nav-link{
-    &:hover{
+.nav-link {
+    &:hover {
         text-decoration: none !important;
     }
 }
 
-.icon{
-  color: $grey;
-  @include size(40px);
-  &:hover{
-    color: $white;
-    cursor: pointer;
-  }
+.icon {
+    color: $grey;
+    @include size(40px);
+    &:hover {
+        color: $white;
+        cursor: pointer;
+    }
 }
 
-.limitWidth{
-  width: 70%;
-  display: flex;
-  align-self: center;
-  margin: 0 auto;
-  margin-top: 25px;
+.limitWidth {
+    width: 70%;
+    display: flex;
+    align-self: center;
+    margin: 0 auto;
+    margin-top: 25px;
 }
 
-.skillTitle{
+.skillTitle {
     display: flex;
     align-self: center;
     justify-content: initial;
 }
 
-.expert{
-    &:hover{
+.expert {
+    &:hover {
         cursor: pointer;
         color: $green;
     }
 }
-.proficient{
-    &:hover{
+
+.proficient {
+    &:hover {
         cursor: pointer;
         color: $blue;
     }
 }
-.competent{
-    &:hover{
+
+.competent {
+    &:hover {
         cursor: pointer;
         color: $orange;
     }
 }
 
-.list{
+.list {
     display: block;
     height: 1px;
     border: 0;
@@ -106,173 +104,178 @@ body{
     padding: 0;
 }
 
-.exp{
+.exp {
     border-top: 1px solid $green;
 }
-.expRed{
+
+.expRed {
     border-top: 1px solid $red;
 }
-.prof{
+
+.prof {
     border-top: 1px solid $blue;
 }
-.comp{
+
+.comp {
     border-top: 1px solid $orange;
 }
 
-
-.flex-Outer{
-  margin: 20px;
-  display: flex;
-  align-content: flex-start;
-  width: 100%;
-  position: relative;
-}
-
-.contact-outer{
-}
-
-.mainSkills{
-  margin: 20px;
+.flex-Outer {
+    margin: 20px;
+    display: flex;
+    align-content: flex-start;
     width: 100%;
     position: relative;
-  display: flex;
+}
+
+.contact-outer {}
+
+.mainSkills {
+    margin: 20px;
+    width: 100%;
+    position: relative;
+    display: flex;
     align-items: baseline;
-        justify-content: space-around;
+    justify-content: space-around;
 }
 
-.noBorder{
-  border: none !important;
-  outline: none !important;
+.noBorder {
+    border: none !important;
+    outline: none !important;
 }
 
-.skillBlock{
+.skillBlock {
     float: right;
-    ul{
+    ul {
         padding: 0;
         list-style: none;
     }
 }
 
-.homeBox{
-  height: 75vh !important;
-  background-color: $grey;
+.homeBox {
+   height: 100% !important;
+    min-height: 75vh !important;
+   background-color: $grey;
 }
 
-.indexCard{
-  height: 150px !important;
-  animation: fadeInUp .3s;
+.projFix{
+    min-height: 75vh !important;
 }
 
-.image{
-  @include size(200px);
-  display: inline-block;
-  animation: fadeInUp .3s;
-  border-radius: 50%;
+.indexCard {
+    height: 150px !important;
+    animation: fadeInUp .3s;
 }
 
-
-.card-header{
-  background: $white !important;
+.image {
+    @include size(200px);
+    display: inline-block;
+    animation: fadeInUp .3s;
+    border-radius: 50%;
 }
 
-.introduction{
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+.card-header {
+    background: $white !important;
 }
 
-
-
-.nameIntro{
-  margin-top: 25px;
-}
-.linksPanel{
-  width: 100%;
-  display: inline-block;
-  cursor: pointer;
-  animation: fadeInUp .5s;
+.introduction {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.fa-github{
-  color: black !important;
+.nameIntro {
+    margin-top: 25px;
 }
 
-.linkBasic{
-  display: inline;
-  text-decoration: none;
-  width: calc(100%/3);
-  color: $black;
-  margin: 0;
-  &:hover{
+.linksPanel {
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+    animation: fadeInUp .5s;
+}
+
+.fa-github {
+    color: black !important;
+}
+
+.linkBasic {
+    display: inline;
     text-decoration: none;
-  }
-  &:focus{
-    text-decoration: none;
-  }
-  &:active{
-    text-decoration: none;
-
-  }
+    width: calc(100%/3);
+    color: $black;
+    margin: 0;
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+    &:active {
+        text-decoration: none;
+    }
 }
 
-.gitLink{
-  @extend .linkBasic;
-  width: 33%;
-  &:hover{
-    color: $orange;
-  }
+.gitLink {
+    @extend .linkBasic;
+    width: 33%;
+    &:hover {
+        color: $orange;
+    }
 }
 
-.linkedInLink{
-  float: right;
-  text-align: right;
-  @extend .linkBasic;
-  &:hover{
-    color: $blue;
-  }
+.linkedInLink {
+    float: right;
+    text-align: right;
+    @extend .linkBasic;
+    &:hover {
+        color: $blue;
+    }
 }
 
-.emailPanel{
-  position: absolute;
-  left: 0;
-  color: $mediumGrey;
-  bottom: 10px;
-  text-align: center;
-  width: 100%;
-  &:hover{
-    color: $red;
-    cursor: default;
-  }
+.emailPanel {
+    position: absolute;
+    left: 0;
+    color: $mediumGrey;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    &:hover {
+        color: $red;
+        cursor: default;
+    }
 }
 
-.namePanel{
-  display: inline-flex;
-  padding: 25px;
-  margin: 5px;
-  text-overflow: ellipsis;
-  overflow-x: hidden;
+.namePanel {
+    display: inline-flex;
+    padding: 25px;
+    margin: 5px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
 }
 
-.expert{
-  animation: fadeInUp .4s;
-
-}
-.proficient{
-  animation: fadeInUp .5s;
+.expert {
+    animation: fadeInUp .4s;
 }
 
-.competent{
-  animation: fadeInUp .6s;
+.proficient {
+    animation: fadeInUp .5s;
 }
 
-.projTitle{
+.competent {
+    animation: fadeInUp .6s;
+}
+
+.projTitle {
     margin: 20px;
 }
-.projDesc{
+
+.projDesc {
     margin: 20px;
 }
+
 .flex-container {
     display: -webkit-flex;
     display: flex;
@@ -288,74 +291,116 @@ body{
     //border-radius: 5px;
     height: 85%;
     margin: calc(10% / 3);
-    padding:calc(10% / 3);
+    padding: calc(10% / 3);
     overflow-y: auto;
 }
 
-.fione{
-     border: 1px solid $blue;
-     animation: fadeIn .4s;
-}
-.fitwo{
-     border: 1px solid $red;
-     animation: fadeIn .5s;
-}.fithree{
-     border: 1px solid $green;
-     animation: fadeIn .6s;
+.fione {
+    border: 1px solid $blue;
+    animation: fadeIn .4s;
 }
 
-.TitleOne{
-  animation: fadeInUp .4s;
-
-}
-.TitleTwo{
-  animation: fadeInUp .5s;
-
-}
-.TitleThree{
-  animation: fadeInUp .6s;
-
+.fitwo {
+    border: 1px solid $red;
+    animation: fadeIn .5s;
 }
 
-.projectsTitle{
-  font-weight: bold;
-  cursor: default;
+.fithree {
+    border: 1px solid $green;
+    animation: fadeIn .6s;
 }
 
-.seamlessLink{
-  color: $blue;
-  &:hover{
-    text-decoration: none;
-    color: $red;
-  }
-  &:active{
-    text-decoration: none;
-    color: $red;
-  }
-  &:focus{
-    text-decoration: none;
-    color: $red;
-  }
+.TitleOne {
+    animation: fadeInUp .4s;
 }
 
-.seamlessLinkPrism{
-  color: $black;
-  &:hover{
-    cursor: pointer !important;
-    text-decoration: none;
+.TitleTwo {
+    animation: fadeInUp .5s;
+}
+
+.TitleThree {
+    animation: fadeInUp .6s;
+}
+
+.projectsTitle {
+    font-weight: bold;
+    cursor: default;
+}
+
+.seamlessLink {
     color: $blue;
-  }
-  &:active{
-    text-decoration: none;
-    color: $blue;
-  }
-  &:focus{
-    text-decoration: none;
-    color: $blue;
-  }
-  .projectsTitle{
-    &:hover{
-      cursor: pointer !important;
+    &:hover {
+        text-decoration: none;
+        color: $red;
     }
-  }
+    &:active {
+        text-decoration: none;
+        color: $red;
+    }
+    &:focus {
+        text-decoration: none;
+        color: $red;
+    }
+}
+
+.seamlessLinkPrism {
+    color: $black;
+    &:hover {
+        cursor: pointer !important;
+        text-decoration: none;
+        color: $blue;
+    }
+    &:active {
+        text-decoration: none;
+        color: $blue;
+    }
+    &:focus {
+        text-decoration: none;
+        color: $blue;
+    }
+    .projectsTitle {
+        &:hover {
+            cursor: pointer !important;
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .emailPanel {
+        display: none;
+    }
+    .word {
+        display: none;
+    }
+    .mainSkills {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .flex-Outer {
+        flex-direction: column;
+    }
+    .flex-item {
+        width: 100%;
+        margin: 10% !important;
+        padding: 10% !important;
+    }
+    .fione {
+        border: 1px solid $blue;
+        animation: fadeIn .4s;
+        width: 100%;
+    }
+    .fitwo {
+        border: 1px solid $red;
+        animation: fadeIn .5s;
+        width: 100%;
+    }
+    .fithree {
+        border: 1px solid $green;
+        animation: fadeIn .6s;
+        width: 100%;
+    }
+    .indexCard {
+        height: auto !important;
+        animation: fadeInUp .3s;
+    }
 }
