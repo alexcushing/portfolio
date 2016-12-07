@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import { ReactDOM, render } from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 
 
 class Nav extends Component {
     constructor(props) {
         super(props);
+        this.getClassName = this.getClassName.bind(this);
     }
  
     getClassName(url) {
-        return this.props.location.pathname === url ? 'nav-item active' : 'nav-item';
+        console.log(url)
+        var check = location.pathname === url ? 'nav-item active' : 'nav-item';
+        console.log(check)
+        return location.pathname === url ? 'nav-item active' : 'nav-item';
     }
  
     render() {
       const classNames = {
-          home: this.getClassName('/login'),
+          home: this.getClassName('/'),
           skills: this.getClassName('/skills'),
           projects: this.getClassName('/projects')
       };
@@ -23,18 +27,18 @@ class Nav extends Component {
           <div>
             <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
               <ul className="nav navbar-nav">
-                <li className="nav-item">
-                    <Link className={classNames.home} to="/">
+                <li className={classNames.home}>
+                    <Link className="nav-link" to="/">
                       Home
                     </Link>
                 </li>
-                <li className="nav-item">
-                    <Link className={classNames.skills} to="/skills">
+                <li className={classNames.skills}>
+                    <Link className="nav-link" to="/skills">
                       Skills
                     </Link>
                 </li>
-                <li className="nav-item">
-                    <Link className={classNames.projects} to="/projects">
+                <li className={classNames.projects}>
+                    <Link className="nav-link" to="/projects">
                       Projects
                     </Link>
                 </li>

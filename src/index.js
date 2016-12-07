@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { ReactDOM, render } from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router'
-import App from './App';
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import Home from './Home';
+import Nav from './navBar';
 import Skills from './Skills';
 import Projects from './Projects';
 require ('./style.scss');
 
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Nav />
+        {this.props.children}
+      </div>
+    );
+  }
+}
 
 render((
   <Router history={browserHistory}>
@@ -17,3 +27,4 @@ render((
     </Route>
 </Router>
 ), document.getElementById('root'))
+

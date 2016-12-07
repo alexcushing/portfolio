@@ -46,6 +46,8 @@
 
 	'use strict';
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -54,32 +56,66 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _App = __webpack_require__(233);
-
-	var _App2 = _interopRequireDefault(_App);
-
-	var _Home = __webpack_require__(234);
+	var _Home = __webpack_require__(233);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Skills = __webpack_require__(239);
+	var _navBar = __webpack_require__(237);
+
+	var _navBar2 = _interopRequireDefault(_navBar);
+
+	var _Skills = __webpack_require__(238);
 
 	var _Skills2 = _interopRequireDefault(_Skills);
 
-	var _Projects = __webpack_require__(240);
+	var _Projects = __webpack_require__(239);
 
 	var _Projects2 = _interopRequireDefault(_Projects);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(241);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(240);
+
+	var App = function (_Component) {
+	  _inherits(App, _Component);
+
+	  function App() {
+	    _classCallCheck(this, App);
+
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'App' },
+	        _react2.default.createElement(_navBar2.default, null),
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react.Component);
 
 	(0, _reactDom.render)(_react2.default.createElement(
-	    _reactRouter.Router,
-	    { history: _reactRouter.browserHistory },
-	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App2.default }),
+	  _reactRouter.Router,
+	  { history: _reactRouter.browserHistory },
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: App },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'skills', component: _Skills2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'projects', component: _Projects2.default })
+	  )
 	), document.getElementById('root'));
 
 /***/ },
@@ -26404,80 +26440,13 @@
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Home = __webpack_require__(234);
-
-	var _Home2 = _interopRequireDefault(_Home);
-
-	var _Skills = __webpack_require__(239);
-
-	var _Skills2 = _interopRequireDefault(_Skills);
-
-	var _Projects = __webpack_require__(240);
-
-	var _Projects2 = _interopRequireDefault(_Projects);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var App = function (_Component) {
-	  _inherits(App, _Component);
-
-	  function App() {
-	    _classCallCheck(this, App);
-
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-	  }
-
-	  _createClass(App, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'App' },
-	        _react2.default.createElement(_Home2.default, null)
-	      );
-	    }
-	  }]);
-
-	  return App;
-	}(_react.Component);
-
-	exports.default = App;
-
-	//figure out how to recreate Link.js
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Contact = __webpack_require__(235);
+	var _Contact = __webpack_require__(234);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
-
-	var _navBar = __webpack_require__(238);
-
-	var _navBar2 = _interopRequireDefault(_navBar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26485,7 +26454,6 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_navBar2.default, { name: 'index' }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'panel panel-default limitWidth homeBox projFix' },
@@ -26568,7 +26536,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 235 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26583,7 +26551,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _copyToClipboard = __webpack_require__(236);
+	var _copyToClipboard = __webpack_require__(235);
 
 	var _copyToClipboard2 = _interopRequireDefault(_copyToClipboard);
 
@@ -26678,12 +26646,12 @@
 	*/
 
 /***/ },
-/* 236 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var deselectCurrent = __webpack_require__(237);
+	var deselectCurrent = __webpack_require__(236);
 
 	var defaultMessage = 'Copy to clipboard: #{key}, Enter';
 
@@ -26764,7 +26732,7 @@
 
 
 /***/ },
-/* 237 */
+/* 236 */
 /***/ function(module, exports) {
 
 	
@@ -26809,6 +26777,110 @@
 
 
 /***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(32);
+
+	var _reactRouter = __webpack_require__(178);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Nav = function (_Component) {
+	    _inherits(Nav, _Component);
+
+	    function Nav(props) {
+	        _classCallCheck(this, Nav);
+
+	        var _this = _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).call(this, props));
+
+	        _this.getClassName = _this.getClassName.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Nav, [{
+	        key: 'getClassName',
+	        value: function getClassName(url) {
+	            console.log(url);
+	            var check = location.pathname === url ? 'nav-item active' : 'nav-item';
+	            console.log(check);
+	            return location.pathname === url ? 'nav-item active' : 'nav-item';
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var classNames = {
+	                home: this.getClassName('/'),
+	                skills: this.getClassName('/skills'),
+	                projects: this.getClassName('/projects')
+	            };
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'nav',
+	                    { className: 'navbar navbar-default navbar-light bg-faded limitWidth' },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        { className: 'nav navbar-nav' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: classNames.home },
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { className: 'nav-link', to: '/' },
+	                                'Home'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: classNames.skills },
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { className: 'nav-link', to: '/skills' },
+	                                'Skills'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: classNames.projects },
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { className: 'nav-link', to: '/projects' },
+	                                'Projects'
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Nav;
+	}(_react.Component);
+
+	exports.default = Nav;
+
+/***/ },
 /* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26822,162 +26894,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(32);
-
-	var _reactRouter = __webpack_require__(178);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Nav = _react2.default.createClass({
-	  displayName: 'Nav',
-
-	  render: function render() {
-	    console.log(this.props.name);
-	    if (this.props.name == 'index') {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'nav',
-	          { className: 'navbar navbar-default navbar-light bg-faded limitWidth' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav' },
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item active' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/' },
-	                'Home'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/skills' },
-	                'Skills'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/projects' },
-	                'Projects'
-	              )
-	            )
-	          )
-	        )
-	      );
-	    } else if (this.props.name == 'Skills') {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'nav',
-	          { className: 'navbar navbar-default navbar-light bg-faded limitWidth' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav' },
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/' },
-	                'Home'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item active' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/skills' },
-	                'Skills'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/projects' },
-	                'Projects'
-	              )
-	            )
-	          )
-	        )
-	      );
-	    } else if (this.props.name == 'Projects') {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'nav',
-	          { className: 'navbar navbar-default navbar-light bg-faded limitWidth' },
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'nav navbar-nav' },
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/' },
-	                'Home'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/skills' },
-	                'Skills'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              { className: 'nav-item active' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { className: 'nav-link', to: '/projects' },
-	                'Projects'
-	              )
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }
-	});
-
-	exports.default = Nav;
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _navBar = __webpack_require__(238);
-
-	var _navBar2 = _interopRequireDefault(_navBar);
-
-	var _Contact = __webpack_require__(235);
+	var _Contact = __webpack_require__(234);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
@@ -26987,7 +26904,6 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_navBar2.default, { name: 'Skills' }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'panel panel-default limitWidth homeBox projFix' },
@@ -27110,7 +27026,7 @@
 	exports.default = Skills;
 
 /***/ },
-/* 240 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27123,11 +27039,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _navBar = __webpack_require__(238);
-
-	var _navBar2 = _interopRequireDefault(_navBar);
-
-	var _Contact = __webpack_require__(235);
+	var _Contact = __webpack_require__(234);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
@@ -27137,7 +27049,6 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    _react2.default.createElement(_navBar2.default, { name: 'Projects' }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'panel panel-default limitWidth homeBox' },
@@ -27229,16 +27140,16 @@
 	exports.default = Projects;
 
 /***/ },
-/* 241 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(242);
+	var content = __webpack_require__(241);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(244)(content, {});
+	var update = __webpack_require__(243)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27255,10 +27166,10 @@
 	}
 
 /***/ },
-/* 242 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(243)();
+	exports = module.exports = __webpack_require__(242)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ubuntu);", ""]);
 
@@ -27269,7 +27180,7 @@
 
 
 /***/ },
-/* 243 */
+/* 242 */
 /***/ function(module, exports) {
 
 	/*
@@ -27325,7 +27236,7 @@
 
 
 /***/ },
-/* 244 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

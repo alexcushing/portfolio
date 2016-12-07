@@ -1,12 +1,9 @@
 import React from 'react';
-
-import Nav from './navBar';
 import Contact from './Contact';
 
 const Projects = () => {
   return (
   <div>
-    <Nav name="Projects" />
     <div className="panel panel-default limitWidth homeBox">
       <div className="panel-body flex-Outer">
         <div className="flex-item fione"><a target="_blank" href="http://prsmphoto.com" className="seamlessLinkPrism"><h3 className="projectsTitle TitleOne">Prism</h3></a><hr className ="line prof" />

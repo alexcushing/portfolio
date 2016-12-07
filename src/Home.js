@@ -1,12 +1,9 @@
 import React from 'react';
-
 import Contact from './Contact';
-import Nav from './navBar';
 
 const Home = () => {
   return (
   <div>
-    <Nav name="index" />
     <div className="panel panel-default limitWidth homeBox projFix">
       <div className="panel-body flex-Outer">
         <div className="introduction">

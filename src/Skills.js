@@ -1,12 +1,9 @@
 import React from 'react';
-
-import Nav from './navBar';
 import Contact from './Contact';
 
 const Skills = () => {
   return (
       <div>
-        <Nav name="Skills" />
         <div className="panel panel-default limitWidth homeBox projFix">
           <div className="mainSkills">
             <div className="skillBlock">
