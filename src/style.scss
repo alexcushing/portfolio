@@ -1,6 +1,7 @@
 $white: white;
 $grey: #f7f7f9;
 $mediumGrey: grey;
+$darkGrey: #191919;
 $black: black;
 $blue: #0099CC;
 $green: #5cb85c;
@@ -86,10 +87,15 @@ body {
 }
 
 .copied{
-      margin-left: 25px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: $darkGrey;
+      position: fixed;
+      bottom: 75px;
+      left: 25px;
       animation: fadeInUpDown 1.3s;
       font-size: 20x;
-      color: $red;
+      color: $white;
       font-family: 'Ubuntu', sans-serif;
 }
 
@@ -270,7 +276,7 @@ body {
 }
 
 .emailPanel {
-    position: absolute;
+    position: fixed !important;
     left: 30px;
     color: $mediumGrey;
     font-family: 'Ubuntu', sans-serif;
@@ -323,6 +329,7 @@ body {
 
 .flex-item {
     width: 30%;
+    min-width: 300px !important;
     //border-radius: 5px;
     max-height: 85%;
     margin: 20px;
@@ -416,7 +423,6 @@ body {
         align-items: center;
     }
     .flex-item {
-        width: 100%;
         margin: 10% !important;
         padding: 10% !important;
     }
@@ -449,4 +455,7 @@ body {
     .linksPanel{
       width: 50% !important;
     }
+    .limitWidth {
+    width: 90% !important;
+  }
 }
