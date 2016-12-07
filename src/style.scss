@@ -65,6 +65,28 @@ body {
     width: 100%;
 }
 
+.notFound{
+    font-size: 25px;
+    color: $mediumGrey;
+        display: flex;
+    align-self: center;
+    &:hover{
+        cursor: default;
+        color:$orange;
+    }
+}
+
+.notFoundLettering{
+    font-size: 50px;
+    color: $darkGrey;
+    margin-bottom: 20px;
+    pading-bottom: 20px;
+    &:hover{
+        cursor: default;
+        color:$green;
+    }
+}
+
 .nav-link {
     &:hover {
         text-decoration: none !important;

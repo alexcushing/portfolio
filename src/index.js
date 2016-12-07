@@ -5,6 +5,7 @@ import Home from './Home';
 import Nav from './navBar';
 import Skills from './Skills';
 import Projects from './Projects';
+import NotFound from './404';
 require ('./style.scss');
 
 class App extends Component {
@@ -24,6 +25,7 @@ render((
       <IndexRoute component={Home} />
       <Route path="skills" component={Skills} />
       <Route path="projects" component={Projects} />
+      <Route path="*" component={NotFound} />
     </Route>
 </Router>
 ), document.getElementById('root'))
