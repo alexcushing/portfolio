@@ -10,9 +10,6 @@ class Nav extends Component {
     }
  
     getClassName(url) {
-        console.log(url)
-        var check = location.pathname === url ? 'nav-item active' : 'nav-item';
-        console.log(check)
         return location.pathname === url ? 'nav-item active' : 'nav-item';
     }
  

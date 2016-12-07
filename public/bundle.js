@@ -26819,9 +26819,6 @@
 	    _createClass(Nav, [{
 	        key: 'getClassName',
 	        value: function getClassName(url) {
-	            console.log(url);
-	            var check = location.pathname === url ? 'nav-item active' : 'nav-item';
-	            console.log(check);
 	            return location.pathname === url ? 'nav-item active' : 'nav-item';
 	        }
 	    }, {
@@ -26925,12 +26922,7 @@
 	            _react2.default.createElement(
 	              'li',
 	              null,
-	              'C/C++'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Python'
+	              'CSS3 / SASS'
 	            ),
 	            _react2.default.createElement(
 	              'li',
@@ -26945,17 +26937,17 @@
 	            _react2.default.createElement(
 	              'li',
 	              null,
-	              'CSS3 / SASS'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
 	              'HTML5'
 	            ),
 	            _react2.default.createElement(
 	              'li',
 	              null,
-	              'Bootstrap'
+	              'Python'
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'C/C++'
 	            )
 	          )
 	        ),
@@ -26971,6 +26963,11 @@
 	          _react2.default.createElement(
 	            'ul',
 	            null,
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'ReactJS'
+	            ),
 	            _react2.default.createElement(
 	              'li',
 	              null,
@@ -27000,11 +26997,6 @@
 	          _react2.default.createElement(
 	            'ul',
 	            null,
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'ReactJS'
-	            ),
 	            _react2.default.createElement(
 	              'li',
 	              null,
@@ -27099,7 +27091,7 @@
 	              { target: '_blank', href: 'https://www.putnam.com/', className: 'seamlessLink' },
 	              'Putnam Investments'
 	            ),
-	            ' I worked on a single page application for administration users to access multiple tables. The page displayed necessary information cleanly, and allowed administrative users could edit, add, or delete information seamlessly.'
+	            ' I worked on a single page application for administration users to access multiple tables. The page displayed necessary information cleanly, and allowed administrative users to edit, add, or delete information seamlessly.'
 	          ),
 	          _react2.default.createElement(
 	            'div',

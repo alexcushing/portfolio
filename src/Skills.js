@@ -11,26 +11,23 @@ const Skills = () => {
             <hr className ="line exp" />
               <ul>
                 <li>
-                  C/C++
+                  CSS3 / SASS
                 </li>
-                  <li>
-                    Python
-                  </li>
                 <li>
                   JavaScript
                 </li>
                 <li>
                   JQuery
                 </li>
-                <li>
-                  CSS3 / SASS
-                </li>
 
                 <li>
                   HTML5
                 </li>
+                  <li>
+                    Python
+                  </li>
                 <li>
-                  Bootstrap
+                  C/C++
                 </li>
               </ul>
             </div>
@@ -38,6 +35,10 @@ const Skills = () => {
               <h2 className="skillTitle proficient">Proficient</h2>
             <hr className ="line prof"/>
               <ul>
+      
+                <li>
+                  ReactJS
+                </li>
                   <li>
                     Django
                   </li>
@@ -53,9 +54,6 @@ const Skills = () => {
               <h2 className="skillTitle competent">Competent</h2>
                 <hr className ="line comp"/>
               <ul>
-                <li>
-                  ReactJS
-                </li>
                   <li>
                     NodeJS
                   </li>
