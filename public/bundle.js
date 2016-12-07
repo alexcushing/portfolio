@@ -62,17 +62,17 @@
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Skills = __webpack_require__(237);
+	var _Skills = __webpack_require__(239);
 
 	var _Skills2 = _interopRequireDefault(_Skills);
 
-	var _Projects = __webpack_require__(238);
+	var _Projects = __webpack_require__(240);
 
 	var _Projects2 = _interopRequireDefault(_Projects);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(239);
+	__webpack_require__(241);
 
 	(0, _reactDom.render)(_react2.default.createElement(
 	    _reactRouter.Router,
@@ -26414,11 +26414,11 @@
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Skills = __webpack_require__(237);
+	var _Skills = __webpack_require__(239);
 
 	var _Skills2 = _interopRequireDefault(_Skills);
 
-	var _Projects = __webpack_require__(238);
+	var _Projects = __webpack_require__(240);
 
 	var _Projects2 = _interopRequireDefault(_Projects);
 
@@ -26475,7 +26475,7 @@
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _navBar = __webpack_require__(236);
+	var _navBar = __webpack_require__(238);
 
 	var _navBar2 = _interopRequireDefault(_navBar);
 
@@ -26488,7 +26488,7 @@
 	    _react2.default.createElement(_navBar2.default, { name: 'index' }),
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'panel panel-default limitWidth homeBox' },
+	      { className: 'panel panel-default limitWidth homeBox projFix' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'panel-body flex-Outer' },
@@ -26516,7 +26516,7 @@
 	                  _react2.default.createElement(
 	                    'p',
 	                    null,
-	                    'Web Developer'
+	                    'Web & Software Developer'
 	                  ),
 	                  _react2.default.createElement(
 	                    'footer',
@@ -26539,19 +26539,29 @@
 	              'a',
 	              { className: 'gitLink', href: 'https://github.com/alexcushing', target: '_blank' },
 	              _react2.default.createElement('img', { src: 'http://ocramius.github.io/presentations/proxy-pattern-in-php/assets/img/gh.svg', alt: '', className: 'icon' }),
-	              ' GitHub'
+	              ' ',
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'word' },
+	                ' GitHub'
+	              )
 	            ),
 	            _react2.default.createElement(
 	              'a',
 	              { className: 'linkedInLink', href: 'https://www.linkedin.com/in/alexandercushing', target: '_blank' },
 	              _react2.default.createElement('img', { src: 'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png', alt: '', className: 'icon' }),
-	              ' LinkedIn'
+	              ' ',
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'word' },
+	                ' LinkedIn'
+	              )
 	            )
 	          )
-	        ),
-	        _react2.default.createElement(_Contact2.default, null)
+	        )
 	      )
-	    )
+	    ),
+	    _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.uml.edu' })
 	  );
 	};
 
@@ -26561,34 +26571,245 @@
 /* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _copyToClipboard = __webpack_require__(236);
+
+	var _copyToClipboard2 = _interopRequireDefault(_copyToClipboard);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Contact = function Contact() {
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "contact-outer" },
-	    _react2.default.createElement(
-	      "div",
-	      { className: "emailPanel" },
-	      "acushing@cs.uml.edu"
-	    )
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Contact = function (_Component) {
+	  _inherits(Contact, _Component);
+
+	  function Contact(props) {
+	    _classCallCheck(this, Contact);
+
+	    var _this = _possibleConstructorReturn(this, (Contact.__proto__ || Object.getPrototypeOf(Contact)).call(this, props));
+
+	    _this.state = { showResults: false };
+	    _this.copyToClipboard = _this.copyToClipboard.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(Contact, [{
+	    key: 'copyToClipboard',
+	    value: function copyToClipboard() {
+	      console.log("in copy");
+	      var email = this.props.value;
+	      (0, _copyToClipboard2.default)(email);
+	      this.setState({ showResults: true });
+	      setTimeout(function () {
+	        this.setState({ showResults: false });
+	      }.bind(this), 1000);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'contact-outer' },
+	        this.state.showResults ? _react2.default.createElement(Results, null) : null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'emailPanel', 'data-balloon': 'acushing@cs.uml.edu', 'data-balloon-pos': 'right', onClick: this.copyToClipboard, ref: 'email' },
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            '@'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Contact;
+	}(_react.Component);
+
+	var Results = function (_Component2) {
+	  _inherits(Results, _Component2);
+
+	  function Results() {
+	    _classCallCheck(this, Results);
+
+	    return _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).apply(this, arguments));
+	  }
+
+	  _createClass(Results, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'copied' },
+	          'copied!'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Results;
+	}(_react.Component);
 
 	exports.default = Contact;
 
+	/*
+	function copyToClipboard(text) {
+	    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+	  }
+	*/
+
 /***/ },
 /* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var deselectCurrent = __webpack_require__(237);
+
+	var defaultMessage = 'Copy to clipboard: #{key}, Enter';
+
+	function format(message) {
+	  var copyKey = (/mac os x/i.test(navigator.userAgent) ? '⌘' : 'Ctrl') + '+C';
+	  return message.replace(/#{\s*key\s*}/g, copyKey);
+	}
+
+	function copy(text, options) {
+	  var debug, message, reselectPrevious, range, selection, mark, success = false;
+	  if (!options) { options = {}; }
+	  debug = options.debug || false;
+	  try {
+	    reselectPrevious = deselectCurrent();
+
+	    range = document.createRange();
+	    selection = document.getSelection();
+
+	    mark = document.createElement('span');
+	    mark.textContent = text;
+	    mark.setAttribute('style', [
+	      // reset user styles for span element
+	      'all: unset',
+	      // prevents scrolling to the end of the page
+	      'position: fixed',
+	      'top: 0',
+	      'clip: rect(0, 0, 0, 0)',
+	      // used to preserve spaces and line breaks
+	      'white-space: pre',
+	      // do not inherit user-select (it may be `none`)
+	      '-webkit-user-select: text',
+	      '-moz-user-select: text',
+	      '-ms-user-select: text',
+	      'user-select: text',
+	    ].join(';'));
+
+	    document.body.appendChild(mark);
+
+	    range.selectNode(mark);
+	    selection.addRange(range);
+
+	    var successful = document.execCommand('copy');
+	    if (!successful) {
+	      throw new Error('copy command was unsuccessful');
+	    }
+	    success = true;
+	  } catch (err) {
+	    debug && console.error('unable to copy using execCommand: ', err);
+	    debug && console.warn('trying IE specific stuff');
+	    try {
+	      window.clipboardData.setData('text', text);
+	      success = true;
+	    } catch (err) {
+	      debug && console.error('unable to copy using clipboardData: ', err);
+	      debug && console.error('falling back to prompt');
+	      message = format('message' in options ? options.message : defaultMessage);
+	      window.prompt(message, text);
+	    }
+	  } finally {
+	    if (selection) {
+	      if (typeof selection.removeRange == 'function') {
+	        selection.removeRange(range);
+	      } else {
+	        selection.removeAllRanges();
+	      }
+	    }
+
+	    if (mark) {
+	      document.body.removeChild(mark);
+	    }
+	    reselectPrevious();
+	  }
+
+	  return success;
+	}
+
+	module.exports = copy;
+
+
+/***/ },
+/* 237 */
+/***/ function(module, exports) {
+
+	
+	module.exports = function () {
+	  var selection = document.getSelection();
+	  if (!selection.rangeCount) {
+	    return function () {};
+	  }
+	  var active = document.activeElement;
+
+	  var ranges = [];
+	  for (var i = 0; i < selection.rangeCount; i++) {
+	    ranges.push(selection.getRangeAt(i));
+	  }
+
+	  switch (active.tagName.toUpperCase()) { // .toUpperCase handles XHTML
+	    case 'INPUT':
+	    case 'TEXTAREA':
+	      active.blur();
+	      break;
+
+	    default:
+	      active = null;
+	      break;
+	  }
+
+	  selection.removeAllRanges();
+	  return function () {
+	    selection.type === 'Caret' &&
+	    selection.removeAllRanges();
+
+	    if (!selection.rangeCount) {
+	      ranges.forEach(function(range) {
+	        selection.addRange(range);
+	      });
+	    }
+
+	    active &&
+	    active.focus();
+	  };
+	};
+
+
+/***/ },
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26739,7 +26960,7 @@
 	exports.default = Nav;
 
 /***/ },
-/* 237 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26752,7 +26973,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _navBar = __webpack_require__(236);
+	var _navBar = __webpack_require__(238);
 
 	var _navBar2 = _interopRequireDefault(_navBar);
 
@@ -26769,7 +26990,7 @@
 	    _react2.default.createElement(_navBar2.default, { name: 'Skills' }),
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'panel panel-default limitWidth homeBox' },
+	      { className: 'panel panel-default limitWidth homeBox projFix' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'mainSkills' },
@@ -26878,18 +27099,18 @@
 	              null,
 	              'SQL'
 	            )
-	          ),
-	          _react2.default.createElement(_Contact2.default, null)
+	          )
 	        )
 	      )
-	    )
+	    ),
+	    _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.uml.edu' })
 	  );
 	};
 
 	exports.default = Skills;
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26902,7 +27123,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _navBar = __webpack_require__(236);
+	var _navBar = __webpack_require__(238);
 
 	var _navBar2 = _interopRequireDefault(_navBar);
 
@@ -26983,34 +27204,41 @@
 	          _react2.default.createElement(
 	            'h3',
 	            { className: 'projectsTitle TitleThree' },
-	            'fill in'
+	            'Employee SMS Scheduling Bot'
 	          ),
 	          _react2.default.createElement('hr', { className: 'line exp' }),
 	          _react2.default.createElement(
 	            'p',
 	            null,
-	            '"Prism" is a photography based web application with an emphasis on a minimalistic aesthetic, tag based search functionality, and a portfolio style user profile. The goal is to provide photographers with a professional and interactive environment to share their work and connect with others.'
+	            'This python bot, that runs on an autosys schedule every 2 minutes, uses a GoogleVoice phone number to receive employee texts. It reviews these texts in which employees text out sick or late to work and the bot notifies their managers. Employees can also request their weekly schedule.'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'projectFooter' },
+	            'Technologies',
+	            _react2.default.createElement('br', null),
+	            ' Python, SQL'
 	          )
-	        ),
-	        _react2.default.createElement(_Contact2.default, null)
+	        )
 	      )
-	    )
+	    ),
+	    _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.uml.edu' })
 	  );
 	};
 
 	exports.default = Projects;
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(240);
+	var content = __webpack_require__(242);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(242)(content, {});
+	var update = __webpack_require__(244)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27027,21 +27255,21 @@
 	}
 
 /***/ },
-/* 240 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(241)();
+	exports = module.exports = __webpack_require__(243)();
 	// imports
-
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ubuntu);", ""]);
 
 	// module
-	exports.push([module.id, "@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    color: white;\n    cursor: pointer; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n\n.expert:hover {\n  cursor: pointer;\n  color: #5cb85c; }\n\n.proficient:hover {\n  cursor: pointer;\n  color: #0099CC; }\n\n.competent:hover {\n  cursor: pointer;\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.introduction {\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 100%;\n  display: inline-block;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: absolute;\n  left: 0;\n  color: grey;\n  bottom: 10px;\n  text-align: center;\n  width: 100%; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: default; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  width: 30%;\n  height: 85%;\n  margin: calc(10% / 3);\n  padding: calc(10% / 3);\n  overflow-y: auto; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n", ""]);
+	exports.push([module.id, "@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeInUpDown {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  50% {\n    opacity: 1;\n    transform: none; }\n  100% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    color: white;\n    cursor: pointer; }\n\n[data-balloon]:after {\n  font-size: 15px !important; }\n\n.copied {\n  margin-left: 25px;\n  animation: fadeInUpDown 1.3s;\n  font-size: 20x;\n  color: #CC0000;\n  font-family: 'Ubuntu', sans-serif; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n\n.expert:hover {\n  cursor: pointer;\n  color: #5cb85c; }\n\n.proficient:hover {\n  cursor: pointer;\n  color: #0099CC; }\n\n.competent:hover {\n  cursor: pointer;\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 100% !important;\n  min-height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.projFix {\n  min-height: 75vh !important; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.introduction {\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 75%;\n  display: inline-block;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: absolute;\n  left: 30px;\n  color: grey;\n  font-family: 'Ubuntu', sans-serif;\n  font-weight: bolder;\n  font-size: 25px;\n  bottom: 30px; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: pointer; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  width: 30%;\n  max-height: 85%;\n  margin: 20px;\n  padding: 30px;\n  overflow-y: auto; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n\n@media all and (max-width: 768px) {\n  /*.emailPanel {\n        display: none;\n    }*/\n  .word {\n    display: none; }\n  .mainSkills {\n    flex-direction: column;\n    overflow-y: auto; }\n  .flex-Outer {\n    flex-direction: column;\n    align-items: center; }\n  .flex-item {\n    width: 100%;\n    margin: 10% !important;\n    padding: 10% !important; }\n  .fione {\n    border: 1px solid #0099CC;\n    animation: fadeIn .4s;\n    width: 100%; }\n  .fitwo {\n    border: 1px solid #CC0000;\n    animation: fadeIn .5s;\n    width: 100%; }\n  .fithree {\n    border: 1px solid #5cb85c;\n    animation: fadeIn .6s;\n    width: 100%; }\n  .indexCard {\n    height: auto !important;\n    animation: fadeInUp .3s; }\n  .image {\n    width: 170px;\n    height: 170px;\n    display: inline-block;\n    animation: fadeInUp .3s;\n    border-radius: 50%; }\n  .linksPanel {\n    width: 50% !important; } }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 241 */
+/* 243 */
 /***/ function(module, exports) {
 
 	/*
@@ -27097,7 +27325,7 @@
 
 
 /***/ },
-/* 242 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

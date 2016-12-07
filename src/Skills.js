@@ -26,7 +26,7 @@ const Skills = () => {
                   JQuery
                 </li>
                 <li>
-                  CSS3 / SASS 
+                  CSS3 / SASS
                 </li>
 
                 <li>
@@ -66,10 +66,10 @@ const Skills = () => {
                   SQL
                 </li>
               </ul>
-              <Contact />
             </div>
           </div>
         </div>
+        <Contact value="acushing@cs.uml.edu" />
       </div>
   );
 }

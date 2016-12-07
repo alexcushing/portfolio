@@ -6,6 +6,9 @@ $blue: #0099CC;
 $green: #5cb85c;
 $orange: #FF8800;
 $red: #CC0000;
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
 @mixin size($width, $height: $width) {
     width: $width;
     height: $height;
@@ -20,6 +23,21 @@ $red: #CC0000;
     100% {
         opacity: 1;
         transform: none;
+    }
+}
+
+@keyframes fadeInUpDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 10%, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 10%, 0);
     }
 }
 
@@ -59,6 +77,20 @@ body {
         color: $white;
         cursor: pointer;
     }
+}
+
+[data-balloon]{
+  &:after{
+    font-size: 15px !important;
+  }
+}
+
+.copied{
+      margin-left: 25px;
+      animation: fadeInUpDown 1.3s;
+      font-size: 20x;
+      color: $red;
+      font-family: 'Ubuntu', sans-serif;
 }
 
 .limitWidth {
@@ -124,6 +156,8 @@ body {
     margin: 20px;
     display: flex;
     align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
     position: relative;
 }
@@ -191,7 +225,7 @@ body {
 }
 
 .linksPanel {
-    width: 100%;
+    width: 75%;
     display: inline-block;
     cursor: pointer;
     animation: fadeInUp .5s;
@@ -237,14 +271,15 @@ body {
 
 .emailPanel {
     position: absolute;
-    left: 0;
+    left: 30px;
     color: $mediumGrey;
-    bottom: 10px;
-    text-align: center;
-    width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    font-size: 25px;
+    bottom: 30px;
     &:hover {
         color: $red;
-        cursor: default;
+        cursor: pointer;
     }
 }
 
@@ -289,9 +324,9 @@ body {
 .flex-item {
     width: 30%;
     //border-radius: 5px;
-    height: 85%;
-    margin: calc(10% / 3);
-    padding: calc(10% / 3);
+    max-height: 85%;
+    margin: 20px;
+    padding: 30px;
     overflow-y: auto;
 }
 
@@ -366,9 +401,9 @@ body {
 }
 
 @media all and (max-width: 768px) {
-    .emailPanel {
+    /*.emailPanel {
         display: none;
-    }
+    }*/
     .word {
         display: none;
     }
@@ -378,6 +413,7 @@ body {
     }
     .flex-Outer {
         flex-direction: column;
+        align-items: center;
     }
     .flex-item {
         width: 100%;
@@ -402,5 +438,15 @@ body {
     .indexCard {
         height: auto !important;
         animation: fadeInUp .3s;
+    }
+    .image {
+      width: 170px;
+      height: 170px;
+      display: inline-block;
+      animation: fadeInUp .3s;
+      border-radius: 50%;
+    }
+    .linksPanel{
+      width: 50% !important;
     }
 }

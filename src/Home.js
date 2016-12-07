@@ -33,9 +33,9 @@ const Home = () => {
         </a>
         </div>
       </div>
-       <Contact />
       </div>
     </div>
+    <Contact value="acushing@cs.uml.edu" />
   </div>
   );
 }

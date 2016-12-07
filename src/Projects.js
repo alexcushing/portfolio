@@ -28,9 +28,9 @@ const Projects = () => {
         </p>
         <div className="projectFooter">Technologies<br /> Python, SQL</div>
         </div>
-       <Contact />
       </div>
     </div>
+    <Contact value="acushing@cs.uml.edu" />
   </div>);
 }
 
