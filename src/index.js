@@ -6,6 +6,7 @@ import Nav from './navBar';
 import Skills from './Skills';
 import Projects from './Projects';
 import NotFound from './404';
+import Experience from './experience';
 require ('./style.scss');
 
 class App extends Component {
@@ -25,6 +26,7 @@ render((
       <IndexRoute component={Home} />
       <Route path="skills" component={Skills} />
       <Route path="projects" component={Projects} />
+      <Route path="experience" component={Experience} />
       <Route path="*" component={NotFound} />
     </Route>
 </Router>

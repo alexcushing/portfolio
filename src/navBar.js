@@ -17,7 +17,8 @@ class Nav extends Component {
       const classNames = {
           home: this.getClassName('/'),
           skills: this.getClassName('/skills'),
-          projects: this.getClassName('/projects')
+          projects: this.getClassName('/projects'),
+          experience: this.getClassName('/experience')
       };
  
       return (
@@ -37,6 +38,11 @@ class Nav extends Component {
                 <li className={classNames.projects}>
                     <Link className="nav-link" to="/projects">
                       Projects
+                    </Link>
+                </li>
+                   <li className={classNames.experience}>
+                    <Link className="nav-link" to="/experience">
+                      Experience
                     </Link>
                 </li>
               </ul>

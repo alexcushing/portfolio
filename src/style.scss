@@ -2,12 +2,14 @@ $white: white;
 $grey: #f7f7f9;
 $mediumGrey: grey;
 $darkGrey: #191919;
+$lighterGrey: lighten($darkGrey,25%);
 $black: black;
 $blue: #0099CC;
 $green: #5cb85c;
 $orange: #FF8800;
 $red: #CC0000;
-$darkRed: darken($red,15%);
+$darkRed: darken($red,5%);
+$darkBlue: darken($blue,5%);
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
@@ -436,6 +438,51 @@ body {
             cursor: pointer !important;
         }
     }
+}
+
+.professionalExperience{
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    font-family: inherit;
+}
+
+.putnamExp{
+    width: 50%;
+    min-width: 250px;
+    overflow-x:auto; 
+}
+
+.expAbout{
+    animation: fadeInUp .4s;
+}
+.expTitle{
+    animation: fadeInUp .6s;
+    color: $blue;
+    &:hover{
+        cursor: pointer;
+        color: $darkBlue
+    }
+}
+.expSubTitle{
+    animation: fadeInUp .6s;
+    color: $darkBlue;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.accent{
+    font-weight: bold;
+    color: $lighterGrey;
+    &:hover{
+        cursor: pointer;
+        color: $lighterGrey;
+    }
+}
+
+.subExpPutnam{
+    margin-left: 5px;
 }
 
 @media all and (max-width: 768px) {
