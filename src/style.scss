@@ -7,6 +7,7 @@ $blue: #0099CC;
 $green: #5cb85c;
 $orange: #FF8800;
 $red: #CC0000;
+$darkRed: darken($red,15%);
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
@@ -68,22 +69,30 @@ body {
 .notFound{
     font-size: 25px;
     color: $mediumGrey;
-        display: flex;
+    animation: fadeInUp .2s;
+    display: flex;
+    transition: all 0.15s ease-out;
     align-self: center;
     &:hover{
+        font-size: 20px;
         cursor: default;
-        color:$orange;
+        transition: all 0.15s ease-out;
+        color:$darkRed;
     }
 }
 
 .notFoundLettering{
     font-size: 50px;
     color: $darkGrey;
+    animation: fadeInUp .5s;
     margin-bottom: 20px;
     pading-bottom: 20px;
+    transition: all 0.15s ease-out;
     &:hover{
+        transition: all 0.15s ease-out;
+        font-size: 75px;
         cursor: default;
-        color:$green;
+        color:$red;
     }
 }
 
