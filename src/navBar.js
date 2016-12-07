@@ -1,90 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ReactDOM, render } from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router'
 
 
-var Nav = React.createClass({
-  render: function () {
-    console.log(this.props.name);
-    if(this.props.name == 'index'){
-      return(
-        <div>
-          <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
-            <ul className="nav navbar-nav">
-              <li className="nav-item active">
-                  <Link className="nav-link" to="/">
-                    Home
-                  </Link>
-              </li>
-              <li className="nav-item">
-                  <Link className="nav-link" to="/skills">
-                    Skills
-                  </Link>
-              </li>
-              <li className="nav-item">
-                  <Link className="nav-link" to="/projects">
-                    Projects
-                  </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      )
+class Nav extends Component {
+    constructor(props) {
+        super(props);
     }
-
-    else if (this.props.name == 'Skills') {
-      return(
-        <div>
-          <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
-            <ul className="nav navbar-nav">
-              <li className="nav-item">
-                  <Link className="nav-link" to="/">
-                    Home
-                  </Link>
-              </li>
-              <li className="nav-item active">
-                  <Link className="nav-link" to="/skills">
-                    Skills
-                  </Link>
-              </li>
-              <li className="nav-item">
-                  <Link className="nav-link" to="/projects">
-                    Projects
-                  </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      )
+ 
+    getClassName(url) {
+        return this.props.location.pathname === url ? 'nav-item active' : 'nav-item';
     }
-    else if (this.props.name == 'Projects') {
-      return(
-        <div>
-          <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
-            <ul className="nav navbar-nav">
-              <li className="nav-item">
-                  <Link className="nav-link" to="/">
-                    Home
-                  </Link>
-              </li>
-              <li className="nav-item">
-                  <Link className="nav-link" to="/skills">
-                    Skills
-                  </Link>
-              </li>
-              <li className="nav-item active">
-                  <Link className="nav-link" to="/projects">
-                    Projects
-                  </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      )
+ 
+    render() {
+      const classNames = {
+          home: this.getClassName('/login'),
+          skills: this.getClassName('/skills'),
+          projects: this.getClassName('/projects')
+      };
+ 
+      return (
+          <div>
+            <nav className="navbar navbar-default navbar-light bg-faded limitWidth">
+              <ul className="nav navbar-nav">
+                <li className="nav-item">
+                    <Link className={classNames.home} to="/">
+                      Home
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className={classNames.skills} to="/skills">
+                      Skills
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className={classNames.projects} to="/projects">
+                      Projects
+                    </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        );
     }
-
-  }
-});
+}
 
 
 

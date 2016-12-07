@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Home from './Home';
 import Skills from './Skills';
+import Nav from './navBar';
 import Projects from './Projects';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Home />
+        <NavBar/>
+        {this.props.children}
       </div>
     );
   }

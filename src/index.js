@@ -10,8 +10,10 @@ require ('./style.scss');
 
 render((
   <Router history={browserHistory}>
-      <Route path="/" component={App} />
-      <Route path="skills" component={Skills}/>
-      <Route path="projects" component={Projects}/>
-  </Router>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="skills" component={Skills} />
+      <Route path="projects" component={Projects} />
+    </Route>
+</Router>
 ), document.getElementById('root'))
