@@ -12,10 +12,10 @@ class Projects extends Component {
   render() {
     const { params } = this.props
     if (this.props.params.parent === "putnamProjects") {
-      this.state = {showResults: false};
+      this.setState({showResults: false});
     }
     else{
-      this.state = {showResults: true};
+      this.setState({showResults: true});
     }
 
     return (

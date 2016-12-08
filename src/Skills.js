@@ -19,7 +19,7 @@ class Skills extends Component {
           school: this.getClassName('school'),
           self: this.getClassName('self')
       };
-      this.state = {showResults: true};
+      this.setState({showResults: true});
     }
     else{
       console.log("else");
@@ -28,7 +28,7 @@ class Skills extends Component {
           school: this.getClassName('other'),
           self: this.getClassName('other')
       };
-      this.state = {showResults: false};
+      this.setState({showResults: false});
     }
 
   return (

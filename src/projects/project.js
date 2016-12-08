@@ -13,10 +13,10 @@ class Project extends Component {
       for(var i = 0; i < Projs.projects.length; i++){
         var current = Projs.projects[i];
         if(current.projURL.length != 0){
-          this.state = {urlCheck: true};
+          this.setState({urlCheck: true});
         }
         else{
-          this.state = {urlCheck: false};
+          this.setState({urlCheck: false});
         }
 
 
