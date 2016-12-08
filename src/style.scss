@@ -227,6 +227,7 @@ body {
 
 .homeBox {
    height: 100% !important;
+   position: relative;
     min-height: 75vh !important;
    background-color: $grey;
 }
@@ -457,6 +458,13 @@ body {
   display: none;
 }
 
+.putnamFooter{
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
 .school{
   display: none;
 }
@@ -468,7 +476,7 @@ body {
     animation: fadeInUp .6s;
     color: $blue;
     &:hover{
-        cursor: pointer;
+        cursor: default;
         color: $darkBlue
     }
 }
@@ -476,7 +484,7 @@ body {
     animation: fadeInUp .6s;
     color: $darkBlue;
     &:hover{
-        cursor: pointer;
+        cursor: default;
     }
 }
 
@@ -497,6 +505,10 @@ body {
     /*.emailPanel {
         display: none;
     }*/
+    .putnamFooter{
+      display: none;
+
+    }
     .word {
         display: none;
     }

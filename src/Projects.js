@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import Contact from './Contact';
-import Prism from './projects/Prism';
-import AdminPortal from './projects/AdminPortal';
-import SMS from './projects/SMS';
-
+import Project from './projects/project';
 
 class Projects extends Component {
   constructor(props){
@@ -14,24 +11,17 @@ class Projects extends Component {
 
   render() {
     const { params } = this.props
-    console.log(params)
     if (this.props.params.parent === "putnamProjects") {
-      console.log("yes")
       this.state = {showResults: false};
     }
     else{
       this.state = {showResults: true};
-      console.log("no");
     }
 
     return (
       <div>
         <div className="panel panel-default limitWidth homeBox">
-          <div className="panel-body flex-Outer">
-            { this.state.showResults ? <Prism /> : null }
-            <AdminPortal />
-            <SMS />
-          </div>
+            <Project />
         </div>
         <Contact value="acushing@cs.uml.edu" />
       </div>
@@ -40,3 +30,7 @@ class Projects extends Component {
 }
 
 export default Projects;
+
+/*
+{ this.state.showResults ? <Prism /> : null }
+*/

@@ -4,6 +4,7 @@ import Contact from './Contact';
 class Skills extends Component {
   constructor(props){
         super(props);
+        this.state = {showResults: false};
         this.getClassName = this.getClassName.bind(this);
     }
 
@@ -18,6 +19,7 @@ class Skills extends Component {
           school: this.getClassName('school'),
           self: this.getClassName('self')
       };
+      this.state = {showResults: true};
     }
     else{
       console.log("else");
@@ -26,14 +28,17 @@ class Skills extends Component {
           school: this.getClassName('other'),
           self: this.getClassName('other')
       };
+      this.state = {showResults: false};
     }
 
   return (
       <div>
         <div className="panel panel-default limitWidth homeBox projFix">
           <div className="mainSkills">
+            { this.state.showResults ? <div className="putnamFooter">Putnam Related Skills</div> : null }
             <div className="skillBlock">
-              <h2 className="skillTitle expert">Expert</h2>
+              <h2 className="skillTitle expert">Expert
+              </h2>
             <hr className ="line exp" />
               <ul>
                 <li className={classNames.putnam}>
@@ -95,5 +100,7 @@ class Skills extends Component {
   );
 }
 }
+
+
 
 export default Skills;
