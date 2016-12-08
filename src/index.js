@@ -25,10 +25,11 @@ render((
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="skills" component={Skills} />
+      <Route path="skills/:parent" component={Skills} />
       <Route path="projects" component={Projects} />
+      <Route path="projects/:parent" component={Projects} />
       <Route path="experience" component={Experience} />
       <Route path="*" component={NotFound} />
     </Route>
 </Router>
 ), document.getElementById('root'))
-

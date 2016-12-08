@@ -450,7 +450,15 @@ body {
 .putnamExp{
     width: 50%;
     min-width: 250px;
-    overflow-x:auto; 
+    overflow-x:auto;
+}
+
+.self{
+  display: none;
+}
+
+.school{
+  display: none;
 }
 
 .expAbout{

@@ -1,7 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Contact from './Contact';
 
-const Skills = () => {
+class Skills extends Component {
+  constructor(props){
+        super(props);
+        this.getClassName = this.getClassName.bind(this);
+    }
+
+    getClassName(name) {
+        return name === 'putnam' ? 'putnam' : name === 'school' ? 'school' : name === 'self' ? 'self' : 'other';
+    }
+
+  render() {
+    if (this.props.params.parent === "putnamSkills") {
+      var classNames = {
+          putnam: this.getClassName('putnam'),
+          school: this.getClassName('school'),
+          self: this.getClassName('self')
+      };
+    }
+    else{
+      console.log("else");
+      var classNames = {
+          putnam: this.getClassName('other'),
+          school: this.getClassName('other'),
+          self: this.getClassName('other')
+      };
+    }
+
   return (
       <div>
         <div className="panel panel-default limitWidth homeBox projFix">
@@ -10,23 +36,23 @@ const Skills = () => {
               <h2 className="skillTitle expert">Expert</h2>
             <hr className ="line exp" />
               <ul>
-                <li>
+                <li className={classNames.putnam}>
                   CSS3 / SASS
                 </li>
-                <li>
+                <li className={classNames.putnam}>
                   JavaScript
                 </li>
-                <li>
+                <li className={classNames.putnam}>
                   JQuery
                 </li>
 
-                <li>
+                <li className={classNames.putnam}>
                   HTML5
                 </li>
-                  <li>
+                  <li className={classNames.putnam}>
                     Python
                   </li>
-                <li>
+                <li className={classNames.school}>
                   C/C++
                 </li>
               </ul>
@@ -35,17 +61,17 @@ const Skills = () => {
               <h2 className="skillTitle proficient">Proficient</h2>
             <hr className ="line prof"/>
               <ul>
-      
-                <li>
+
+                <li className={classNames.self}>
                   ReactJS
                 </li>
-                  <li>
+                  <li className={classNames.putnam}>
                     Django
                   </li>
-                <li>
+                <li className={classNames.self}>
                   Jade / Pug
                 </li>
-                <li>
+                <li className={classNames.self}>
                   MongoDB
                 </li>
               </ul>
@@ -54,10 +80,10 @@ const Skills = () => {
               <h2 className="skillTitle competent">Competent</h2>
                 <hr className ="line comp"/>
               <ul>
-                  <li>
+                  <li className={classNames.self}>
                     NodeJS
                   </li>
-                <li>
+                <li className={classNames.putnam}>
                   SQL
                 </li>
               </ul>
@@ -67,6 +93,7 @@ const Skills = () => {
         <Contact value="acushing@cs.uml.edu" />
       </div>
   );
+}
 }
 
 export default Skills;

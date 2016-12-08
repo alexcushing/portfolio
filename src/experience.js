@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
+import Contact from './Contact';
+
 class Experience extends Component {
   constructor(props){
         super(props);
-       
+
     }
 
   render() {
+    const linkTo = "/projects/putnamProjects"
+    const linkToSkills = "/skills/putnamSkills"
+
     return (
       <div className="panel panel-default limitWidth homeBox projFix">
         <div className="professionalExperience">
@@ -16,15 +21,16 @@ class Experience extends Component {
                 <hr className="prof" />
                 <p className="expAbout">
                     Worked in web and software development creating interfaces for data manipulation, python cycles for automating work tasks, ETL jobs, and more.
-                    <div className="subExpPutnam"><br/><br/><span className="accent"><Link className="accent" to="/projects">Larger Scale projects worked on:</Link></span>
+                    <div className="subExpPutnam"><br/><br/><span className="accent"><Link className="accent" to={linkTo} params={ "test" }>Larger Scale projects worked on:</Link></span>
                     <br/><br/>Admin Portal
                     <br/>Employee SMS Scheduling Bot
                     <hr />
-                    <span className="accent"><Link className="accent" to="/skills">Languages used: </Link></span><br/><br/>
-                    Python, SQL, Django, JavaScript</div>
+                    <span className="accent"><Link className="accent" to={linkToSkills}>Languages used: </Link></span><br/><br/>
+                    Python, SQL, Django, JavaScript, CSS3, HTML5, JQuery</div>
                 </p>
             </div>
         </div>
+        <Contact value="acushing@cs.AdminPortal.edu" />
     </div>
     );
   }
@@ -33,5 +39,3 @@ class Experience extends Component {
 
 
 export default Experience;
-
-
