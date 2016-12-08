@@ -72,9 +72,13 @@
 
 	var _Projects2 = _interopRequireDefault(_Projects);
 
-	var _ = __webpack_require__(244);
+	var _ = __webpack_require__(242);
 
 	var _2 = _interopRequireDefault(_);
+
+	var _experience = __webpack_require__(243);
+
+	var _experience2 = _interopRequireDefault(_experience);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -84,7 +88,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(240);
+	__webpack_require__(244);
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -118,7 +122,10 @@
 	    { path: '/', component: App },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'skills', component: _Skills2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'skills/:parent', component: _Skills2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'projects', component: _Projects2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'projects/:parent', component: _Projects2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'experience', component: _experience2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: '*', component: _2.default })
 	  )
 	), document.getElementById('root'));
@@ -26832,7 +26839,8 @@
 	            var classNames = {
 	                home: this.getClassName('/'),
 	                skills: this.getClassName('/skills'),
-	                projects: this.getClassName('/projects')
+	                projects: this.getClassName('/projects'),
+	                experience: this.getClassName('/experience')
 	            };
 
 	            return _react2.default.createElement(
@@ -26870,6 +26878,15 @@
 	                                { className: 'nav-link', to: '/projects' },
 	                                'Projects'
 	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            { className: classNames.experience },
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { className: 'nav-link', to: '/experience' },
+	                                'Experience'
+	                            )
 	                        )
 	                    )
 	                )
@@ -26892,6 +26909,8 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -26902,128 +26921,417 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Skills = function Skills() {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'panel panel-default limitWidth homeBox projFix' },
-	      _react2.default.createElement(
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Skills = function (_Component) {
+	  _inherits(Skills, _Component);
+
+	  function Skills(props) {
+	    _classCallCheck(this, Skills);
+
+	    var _this = _possibleConstructorReturn(this, (Skills.__proto__ || Object.getPrototypeOf(Skills)).call(this, props));
+
+	    _this.state = { showResults: false };
+	    _this.getClassName = _this.getClassName.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(Skills, [{
+	    key: 'getClassName',
+	    value: function getClassName(name) {
+	      return name === 'putnam' ? 'putnam' : name === 'school' ? 'school' : name === 'self' ? 'self' : 'other';
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (this.props.params.parent === "putnamSkills") {
+	        var classNames = {
+	          putnam: this.getClassName('putnam'),
+	          school: this.getClassName('school'),
+	          self: this.getClassName('self')
+	        };
+	        this.state = { showResults: true };
+	      } else {
+	        console.log("else");
+	        var classNames = {
+	          putnam: this.getClassName('other'),
+	          school: this.getClassName('other'),
+	          self: this.getClassName('other')
+	        };
+	        this.state = { showResults: false };
+	      }
+
+	      return _react2.default.createElement(
 	        'div',
-	        { className: 'mainSkills' },
+	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'skillBlock' },
+	          { className: 'panel panel-default limitWidth homeBox projFix' },
+	          this.state.showResults ? _react2.default.createElement(
+	            'div',
+	            { className: 'putnamFooter' },
+	            'Putnam Related Skills'
+	          ) : null,
 	          _react2.default.createElement(
-	            'h2',
-	            { className: 'skillTitle expert' },
-	            'Expert'
-	          ),
-	          _react2.default.createElement('hr', { className: 'line exp' }),
-	          _react2.default.createElement(
-	            'ul',
-	            null,
+	            'div',
+	            { className: 'mainSkills' },
 	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'CSS3 / SASS'
+	              'div',
+	              { className: 'skillBlock' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'skillTitle expert' },
+	                'Expert'
+	              ),
+	              _react2.default.createElement('hr', { className: 'line exp' }),
+	              _react2.default.createElement(
+	                'ul',
+	                null,
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'CSS3 / SASS'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'JavaScript'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'JQuery'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'HTML5'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'Python'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.school },
+	                  'C/C++'
+	                )
+	              )
 	            ),
 	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'JavaScript'
+	              'div',
+	              { className: 'skillBlock' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'skillTitle proficient' },
+	                'Proficient'
+	              ),
+	              _react2.default.createElement('hr', { className: 'line prof' }),
+	              _react2.default.createElement(
+	                'ul',
+	                null,
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.self },
+	                  'ReactJS'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'Django'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.self },
+	                  'Jade / Pug'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.self },
+	                  'MongoDB'
+	                )
+	              )
 	            ),
 	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'JQuery'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'HTML5'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Python'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'C/C++'
+	              'div',
+	              { className: 'skillBlock' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'skillTitle competent' },
+	                'Competent'
+	              ),
+	              _react2.default.createElement('hr', { className: 'line comp' }),
+	              _react2.default.createElement(
+	                'ul',
+	                null,
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.self },
+	                  'NodeJS'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'SQL'
+	                )
+	              )
 	            )
 	          )
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'skillBlock' },
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'skillTitle proficient' },
-	            'Proficient'
-	          ),
-	          _react2.default.createElement('hr', { className: 'line prof' }),
-	          _react2.default.createElement(
-	            'ul',
-	            null,
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'ReactJS'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Django'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Jade / Pug'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'MongoDB'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'skillBlock' },
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'skillTitle competent' },
-	            'Competent'
-	          ),
-	          _react2.default.createElement('hr', { className: 'line comp' }),
-	          _react2.default.createElement(
-	            'ul',
-	            null,
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'NodeJS'
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'SQL'
-	            )
-	          )
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.uml.edu' })
-	  );
-	};
+	        _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.uml.edu' })
+	      );
+	    }
+	  }]);
+
+	  return Skills;
+	}(_react.Component);
 
 	exports.default = Skills;
 
 /***/ },
 /* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Contact = __webpack_require__(234);
+
+	var _Contact2 = _interopRequireDefault(_Contact);
+
+	var _project = __webpack_require__(240);
+
+	var _project2 = _interopRequireDefault(_project);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Projects = function (_Component) {
+	    _inherits(Projects, _Component);
+
+	    function Projects(props) {
+	        _classCallCheck(this, Projects);
+
+	        var _this = _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
+
+	        _this.state = { showResults: false };
+	        _this.checkPutnam = _this.checkPutnam.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(Projects, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps() {
+	            this.checkPutnam();
+	        }
+	    }, {
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            this.checkPutnam();
+	        }
+	    }, {
+	        key: 'checkPutnam',
+	        value: function checkPutnam() {
+	            if (location.pathname === "/projects/putnamProjects") {
+	                console.log("hide prism");
+	                this.setState({ showResults: true });
+	            } else {
+	                console.log("false");
+	                this.setState({ showResults: false });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'panel panel-default limitWidth homeBox' },
+	                    this.state.showResults ? _react2.default.createElement(
+	                        'div',
+	                        { className: 'putnamFooter' },
+	                        'Putnam Related Projects'
+	                    ) : null,
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'panel-body flex-Outer' },
+	                        this.state.showResults ? null : _react2.default.createElement(_project2.default, { projectName: 'Prism', url: true, checkPutnam: this.checkPutnam }),
+	                        _react2.default.createElement(_project2.default, { projectName: 'AdminPortal', url: false, checkPutnam: this.checkPutnam }),
+	                        _react2.default.createElement(_project2.default, { projectName: 'SMS', url: false, checkPutnam: this.checkPutnam })
+	                    )
+	                ),
+	                _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.uml.edu' })
+	            );
+	        }
+	    }]);
+
+	    return Projects;
+	}(_react.Component);
+
+	exports.default = Projects;
+
+	/*
+	{ this.state.showResults ? <Prism /> : null }
+	*/
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _projectsJSON = __webpack_require__(241);
+
+	var _projectsJSON2 = _interopRequireDefault(_projectsJSON);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Project = function (_Component) {
+	  _inherits(Project, _Component);
+
+	  function Project(props) {
+	    _classCallCheck(this, Project);
+
+	    return _possibleConstructorReturn(this, (Project.__proto__ || Object.getPrototypeOf(Project)).call(this, props));
+	  }
+
+	  _createClass(Project, [{
+	    key: 'render',
+	    value: function render() {
+	      var name = this.props.projectName;
+	      for (var i = 0; i < _projectsJSON2.default.projects.length; i++) {
+	        var currentProj = _projectsJSON2.default.projects[i].projectName;
+	        var current = _projectsJSON2.default.projects[i];
+	        if (currentProj === name) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: current.outerDivClassName },
+	            this.props.url ? _react2.default.createElement(
+	              'a',
+	              { target: '_blank', href: current.projURL, className: 'seamlessLinkPrism' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: current.headerClassName },
+	                current.projName
+	              )
+	            ) : _react2.default.createElement(
+	              'h3',
+	              { className: current.headerClassName },
+	              current.projName
+	            ),
+	            _react2.default.createElement('hr', { className: current.lineColorClassName }),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              current.description
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'projectFooter' },
+	              'Technologies',
+	              _react2.default.createElement('br', null),
+	              current.Technologies
+	            )
+	          );
+	        }
+	      }
+	      return _react2.default.createElement('div', null);
+	    }
+	  }]);
+
+	  return Project;
+	}(_react.Component);
+
+	exports.default = Project;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var Projs = {
+	  projects: [{
+	    projectName: "Prism",
+	    name: "Prism",
+	    putnam: "no",
+	    projURL: "http://prsmphoto.com",
+	    outerDivClassName: "flex-item fione",
+	    headerClassName: "projectsTitle TitleOne",
+	    projName: "Prism",
+	    lineColorClassName: "line prof",
+	    description: "\"Prism\" is a photography based web application with an emphasis on a minimalistic aesthetic, tag based search functionality, and a portfolio style user profile. The goal is to provide photographers with a professional and interactive environment to share their work and connect with others.",
+	    Technologies: "MongoDB, Express.js, JQuery, Node.js, Vanilla JS, SCSS"
+	  }, {
+	    projectName: "AdminPortal",
+	    name: "Admin Portal",
+	    putnam: "yes",
+	    projURL: "",
+	    outerDivClassName: "flex-item fitwo",
+	    headerClassName: "projectsTitle TitleTwo",
+	    projName: "Admin Portal",
+	    lineColorClassName: "line expRed",
+	    description: "While working as a co-op at Putnam Investments, I worked on a single page application for administration users to access multiple tables. The page displayed necessary information cleanly, and allowed administrative users to edit, add, or delete information seamlessly.",
+	    Technologies: " JavaScript, Django, Python, CSS"
+	  }, {
+	    projectName: "SMS",
+	    name: "SMS",
+	    putnam: "yes",
+	    projURL: "",
+	    outerDivClassName: "flex-item fithree",
+	    headerClassName: "projectsTitle TitleThree",
+	    projName: "Employee SMS Scheduling Bot",
+	    lineColorClassName: "line exp",
+	    description: "This python bot, that runs on an autosys schedule every 2 minutes, uses a GoogleVoice phone number to receive employee texts. It reviews these texts in which employees text out sick or late to work and the bot notifies their managers. Employees can also request their weekly schedule.",
+	    Technologies: " Python, SQL"
+	  }]
+	};
+
+	exports.default = Projs;
+
+/***/ },
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27042,91 +27350,27 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Projects = function Projects() {
+	var NotFound = function NotFound() {
 	  return _react2.default.createElement(
 	    'div',
 	    null,
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'panel panel-default limitWidth homeBox' },
+	      { className: 'panel panel-default limitWidth homeBox projFix' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'panel-body flex-Outer' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'flex-item fione' },
+	          { className: 'notFound' },
 	          _react2.default.createElement(
-	            'a',
-	            { target: '_blank', href: 'http://prsmphoto.com', className: 'seamlessLinkPrism' },
-	            _react2.default.createElement(
-	              'h3',
-	              { className: 'projectsTitle TitleOne' },
-	              'Prism'
-	            )
+	            'span',
+	            { className: 'notFoundLettering' },
+	            '404'
 	          ),
-	          _react2.default.createElement('hr', { className: 'line prof' }),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '"Prism" is a photography based web application with an emphasis on a minimalistic aesthetic, tag based search functionality, and a portfolio style user profile. The goal is to provide photographers with a professional and interactive environment to share their work and connect with others.'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'projectFooter' },
-	            'Technologies',
-	            _react2.default.createElement('br', null),
-	            ' MongoDB, Express.js, JQuery, Node.js, Vanilla JS, CSS'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'flex-item fitwo' },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'projectsTitle TitleTwo' },
-	            'Admin Portal'
-	          ),
-	          _react2.default.createElement('hr', { className: 'line expRed' }),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'While working as a co-op at ',
-	            _react2.default.createElement(
-	              'a',
-	              { target: '_blank', href: 'https://www.putnam.com/', className: 'seamlessLink' },
-	              'Putnam Investments'
-	            ),
-	            ' I worked on a single page application for administration users to access multiple tables. The page displayed necessary information cleanly, and allowed administrative users to edit, add, or delete information seamlessly.'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'projectFooter' },
-	            'Technologies',
-	            _react2.default.createElement('br', null),
-	            ' JavaScript, Django, Python, CSS'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'flex-item fithree' },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'projectsTitle TitleThree' },
-	            'Employee SMS Scheduling Bot'
-	          ),
-	          _react2.default.createElement('hr', { className: 'line exp' }),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'This python bot, that runs on an autosys schedule every 2 minutes, uses a GoogleVoice phone number to receive employee texts. It reviews these texts in which employees text out sick or late to work and the bot notifies their managers. Employees can also request their weekly schedule.'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'projectFooter' },
-	            'Technologies',
-	            _react2.default.createElement('br', null),
-	            ' Python, SQL'
-	          )
+	          ' ',
+	          _react2.default.createElement('br', null),
+	          ' Not Found'
 	        )
 	      )
 	    ),
@@ -27134,19 +27378,134 @@
 	  );
 	};
 
-	exports.default = Projects;
+	exports.default = NotFound;
 
 /***/ },
-/* 240 */
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(178);
+
+	var _Contact = __webpack_require__(234);
+
+	var _Contact2 = _interopRequireDefault(_Contact);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Experience = function (_Component) {
+	    _inherits(Experience, _Component);
+
+	    function Experience(props) {
+	        _classCallCheck(this, Experience);
+
+	        return _possibleConstructorReturn(this, (Experience.__proto__ || Object.getPrototypeOf(Experience)).call(this, props));
+	    }
+
+	    _createClass(Experience, [{
+	        key: 'render',
+	        value: function render() {
+	            var linkTo = "/projects/putnamProjects";
+	            var linkToSkills = "/skills/putnamSkills";
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'panel panel-default limitWidth homeBox projFix' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'professionalExperience' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'putnamExp' },
+	                        _react2.default.createElement(
+	                            'h2',
+	                            { className: 'expTitle' },
+	                            'Putnam Investments'
+	                        ),
+	                        _react2.default.createElement(
+	                            'h6',
+	                            { className: 'expSubTitle' },
+	                            'Web & Software Developer Co-op'
+	                        ),
+	                        _react2.default.createElement('hr', { className: 'prof' }),
+	                        _react2.default.createElement(
+	                            'p',
+	                            { className: 'expAbout' },
+	                            'Worked in web and software development creating interfaces for data manipulation, python cycles for automating work tasks, ETL jobs, and more.',
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'subExpPutnam' },
+	                                _react2.default.createElement('br', null),
+	                                _react2.default.createElement('br', null),
+	                                _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'accent' },
+	                                    _react2.default.createElement(
+	                                        _reactRouter.Link,
+	                                        { className: 'accent', to: linkTo, params: "test" },
+	                                        'Larger Scale projects worked on:'
+	                                    )
+	                                ),
+	                                _react2.default.createElement('br', null),
+	                                _react2.default.createElement('br', null),
+	                                'Admin Portal',
+	                                _react2.default.createElement('br', null),
+	                                'Employee SMS Scheduling Bot',
+	                                _react2.default.createElement('hr', null),
+	                                _react2.default.createElement(
+	                                    'span',
+	                                    { className: 'accent' },
+	                                    _react2.default.createElement(
+	                                        _reactRouter.Link,
+	                                        { className: 'accent', to: linkToSkills },
+	                                        'Languages used: '
+	                                    )
+	                                ),
+	                                _react2.default.createElement('br', null),
+	                                _react2.default.createElement('br', null),
+	                                'Python, SQL, Django, JavaScript, CSS3, HTML5, JQuery'
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.AdminPortal.edu' })
+	            );
+	        }
+	    }]);
+
+	    return Experience;
+	}(_react.Component);
+
+	exports.default = Experience;
+
+/***/ },
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(241);
+	var content = __webpack_require__(245);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(243)(content, {});
+	var update = __webpack_require__(247)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27163,21 +27522,21 @@
 	}
 
 /***/ },
-/* 241 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(242)();
+	exports = module.exports = __webpack_require__(246)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ubuntu);", ""]);
 
 	// module
-	exports.push([module.id, "@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeInUpDown {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  50% {\n    opacity: 1;\n    transform: none; }\n  100% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.notFound {\n  font-size: 25px;\n  color: grey;\n  display: flex;\n  align-self: center; }\n  .notFound:hover {\n    cursor: default;\n    color: #FF8800; }\n\n.notFoundLettering {\n  font-size: 50px;\n  color: #191919;\n  margin-bottom: 20px;\n  pading-bottom: 20px; }\n  .notFoundLettering:hover {\n    cursor: default;\n    color: #5cb85c; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    color: white;\n    cursor: pointer; }\n\n[data-balloon]:after {\n  font-size: 15px !important; }\n\n.copied {\n  padding: 10px;\n  border-radius: 5px;\n  background-color: #191919;\n  position: fixed;\n  bottom: 75px;\n  left: 25px;\n  animation: fadeInUpDown 1.3s;\n  font-size: 20x;\n  color: white;\n  font-family: 'Ubuntu', sans-serif; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n\n.expert:hover {\n  cursor: pointer;\n  color: #5cb85c; }\n\n.proficient:hover {\n  cursor: pointer;\n  color: #0099CC; }\n\n.competent:hover {\n  cursor: pointer;\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 100% !important;\n  min-height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.projFix {\n  min-height: 75vh !important; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.introduction {\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 75%;\n  display: inline-block;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: fixed !important;\n  left: 30px;\n  color: grey;\n  font-family: 'Ubuntu', sans-serif;\n  font-weight: bolder;\n  font-size: 25px;\n  bottom: 30px; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: pointer; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  width: 30%;\n  min-width: 300px !important;\n  max-height: 85%;\n  margin: 20px;\n  padding: 30px;\n  overflow-y: auto; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n\n@media all and (max-width: 768px) {\n  /*.emailPanel {\r\n        display: none;\r\n    }*/\n  .word {\n    display: none; }\n  .mainSkills {\n    flex-direction: column;\n    overflow-y: auto; }\n  .flex-Outer {\n    flex-direction: column;\n    align-items: center; }\n  .flex-item {\n    margin: 10% !important;\n    padding: 10% !important; }\n  .fione {\n    border: 1px solid #0099CC;\n    animation: fadeIn .4s;\n    width: 100%; }\n  .fitwo {\n    border: 1px solid #CC0000;\n    animation: fadeIn .5s;\n    width: 100%; }\n  .fithree {\n    border: 1px solid #5cb85c;\n    animation: fadeIn .6s;\n    width: 100%; }\n  .indexCard {\n    height: auto !important;\n    animation: fadeInUp .3s; }\n  .image {\n    width: 170px;\n    height: 170px;\n    display: inline-block;\n    animation: fadeInUp .3s;\n    border-radius: 50%; }\n  .linksPanel {\n    width: 50% !important; }\n  .limitWidth {\n    width: 90% !important; }\n  .navbar {\n    position: sticky !important; } }\n", ""]);
+	exports.push([module.id, "@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeInUpDown {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  50% {\n    opacity: 1;\n    transform: none; }\n  100% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.notFound {\n  font-size: 25px;\n  color: grey;\n  animation: fadeInUp .2s;\n  display: flex;\n  transition: all 0.15s ease-out;\n  align-self: center; }\n  .notFound:hover {\n    font-size: 20px;\n    cursor: default;\n    transition: all 0.15s ease-out;\n    color: #b30000; }\n\n.notFoundLettering {\n  font-size: 50px;\n  color: #191919;\n  animation: fadeInUp .5s;\n  margin-bottom: 20px;\n  pading-bottom: 20px;\n  transition: all 0.15s ease-out; }\n  .notFoundLettering:hover {\n    transition: all 0.15s ease-out;\n    font-size: 75px;\n    cursor: default;\n    color: #CC0000; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    color: white;\n    cursor: pointer; }\n\n[data-balloon]:after {\n  font-size: 15px !important; }\n\n.copied {\n  padding: 10px;\n  border-radius: 5px;\n  background-color: #191919;\n  position: fixed;\n  bottom: 75px;\n  left: 25px;\n  animation: fadeInUpDown 1.3s;\n  font-size: 20x;\n  color: white;\n  font-family: 'Ubuntu', sans-serif; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n\n.expert:hover {\n  cursor: pointer;\n  color: #5cb85c; }\n\n.proficient:hover {\n  cursor: pointer;\n  color: #0099CC; }\n\n.competent:hover {\n  cursor: pointer;\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 100% !important;\n  position: relative;\n  min-height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.projFix {\n  min-height: 75vh !important; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.introduction {\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 75%;\n  display: inline-block;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: fixed !important;\n  left: 30px;\n  color: grey;\n  font-family: 'Ubuntu', sans-serif;\n  font-weight: bolder;\n  font-size: 25px;\n  bottom: 30px; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: pointer; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  width: 30%;\n  min-width: 300px !important;\n  max-height: 85%;\n  margin: 20px;\n  padding: 30px;\n  overflow-y: auto; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n\n.professionalExperience {\n  margin: 20px auto;\n  display: flex;\n  justify-content: center;\n  font-family: inherit; }\n\n.putnamExp {\n  width: 50%;\n  min-width: 250px;\n  overflow-x: auto; }\n\n.self {\n  display: none; }\n\n.putnamFooter {\n  position: absolute;\n  bottom: 10px;\n  width: 100%;\n  text-align: center; }\n\n.school {\n  display: none; }\n\n.expAbout {\n  animation: fadeInUp .4s; }\n\n.expTitle {\n  animation: fadeInUp .6s;\n  color: #0099CC; }\n  .expTitle:hover {\n    cursor: default;\n    color: #0086b3; }\n\n.expSubTitle {\n  animation: fadeInUp .6s;\n  color: #0086b3; }\n  .expSubTitle:hover {\n    cursor: default; }\n\n.accent {\n  font-weight: bold;\n  color: #595959; }\n  .accent:hover {\n    cursor: pointer;\n    color: #595959; }\n\n.subExpPutnam {\n  margin-left: 5px; }\n\n@media all and (max-width: 768px) {\n  /*.emailPanel {\r\n        display: none;\r\n    }*/\n  .putnamFooter {\n    display: none; }\n  .word {\n    display: none; }\n  .mainSkills {\n    flex-direction: column;\n    overflow-y: auto; }\n  .flex-Outer {\n    flex-direction: column;\n    align-items: center; }\n  .flex-item {\n    margin: 10% !important;\n    padding: 10% !important; }\n  .fione {\n    border: 1px solid #0099CC;\n    animation: fadeIn .4s;\n    width: 100%; }\n  .fitwo {\n    border: 1px solid #CC0000;\n    animation: fadeIn .5s;\n    width: 100%; }\n  .fithree {\n    border: 1px solid #5cb85c;\n    animation: fadeIn .6s;\n    width: 100%; }\n  .indexCard {\n    height: auto !important;\n    animation: fadeInUp .3s; }\n  .image {\n    width: 170px;\n    height: 170px;\n    display: inline-block;\n    animation: fadeInUp .3s;\n    border-radius: 50%; }\n  .linksPanel {\n    width: 50% !important; }\n  .limitWidth {\n    width: 90% !important; }\n  .navbar {\n    position: sticky !important; } }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 242 */
+/* 246 */
 /***/ function(module, exports) {
 
 	/*
@@ -27233,7 +27592,7 @@
 
 
 /***/ },
-/* 243 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27483,56 +27842,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Contact = __webpack_require__(234);
-
-	var _Contact2 = _interopRequireDefault(_Contact);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var NotFound = function NotFound() {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'panel panel-default limitWidth homeBox projFix' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'panel-body flex-Outer' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'notFound' },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'notFoundLettering' },
-	            '404'
-	          ),
-	          ' ',
-	          _react2.default.createElement('br', null),
-	          ' Not Found'
-	        )
-	      )
-	    ),
-	    _react2.default.createElement(_Contact2.default, { value: 'acushing@cs.uml.edu' })
-	  );
-	};
-
-	exports.default = NotFound;
 
 /***/ }
 /******/ ]);

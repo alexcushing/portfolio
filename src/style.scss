@@ -2,11 +2,14 @@ $white: white;
 $grey: #f7f7f9;
 $mediumGrey: grey;
 $darkGrey: #191919;
+$lighterGrey: lighten($darkGrey,25%);
 $black: black;
 $blue: #0099CC;
 $green: #5cb85c;
 $orange: #FF8800;
 $red: #CC0000;
+$darkRed: darken($red,5%);
+$darkBlue: darken($blue,5%);
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
@@ -68,22 +71,30 @@ body {
 .notFound{
     font-size: 25px;
     color: $mediumGrey;
-        display: flex;
+    animation: fadeInUp .2s;
+    display: flex;
+    transition: all 0.15s ease-out;
     align-self: center;
     &:hover{
+        font-size: 20px;
         cursor: default;
-        color:$orange;
+        transition: all 0.15s ease-out;
+        color:$darkRed;
     }
 }
 
 .notFoundLettering{
     font-size: 50px;
     color: $darkGrey;
+    animation: fadeInUp .5s;
     margin-bottom: 20px;
     pading-bottom: 20px;
+    transition: all 0.15s ease-out;
     &:hover{
+        transition: all 0.15s ease-out;
+        font-size: 75px;
         cursor: default;
-        color:$green;
+        color:$red;
     }
 }
 
@@ -216,6 +227,7 @@ body {
 
 .homeBox {
    height: 100% !important;
+   position: relative;
     min-height: 75vh !important;
    background-color: $grey;
 }
@@ -429,10 +441,74 @@ body {
     }
 }
 
+.professionalExperience{
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    font-family: inherit;
+}
+
+.putnamExp{
+    width: 50%;
+    min-width: 250px;
+    overflow-x:auto;
+}
+
+.self{
+  display: none;
+}
+
+.putnamFooter{
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.school{
+  display: none;
+}
+
+.expAbout{
+    animation: fadeInUp .4s;
+}
+.expTitle{
+    animation: fadeInUp .6s;
+    color: $blue;
+    &:hover{
+        cursor: default;
+        color: $darkBlue
+    }
+}
+.expSubTitle{
+    animation: fadeInUp .6s;
+    color: $darkBlue;
+    &:hover{
+        cursor: default;
+    }
+}
+
+.accent{
+    font-weight: bold;
+    color: $lighterGrey;
+    &:hover{
+        cursor: pointer;
+        color: $lighterGrey;
+    }
+}
+
+.subExpPutnam{
+    margin-left: 5px;
+}
+
 @media all and (max-width: 768px) {
     /*.emailPanel {
         display: none;
     }*/
+    .putnamFooter{
+      display: none;
+
+    }
     .word {
         display: none;
     }
