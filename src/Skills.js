@@ -19,7 +19,7 @@ class Skills extends Component {
           school: this.getClassName('school'),
           self: this.getClassName('self')
       };
-      this.setState({showResults: true});
+      this.state = {showResults: true};
     }
     else{
       console.log("else");
@@ -28,14 +28,14 @@ class Skills extends Component {
           school: this.getClassName('other'),
           self: this.getClassName('other')
       };
-      this.setState({showResults: false});
+      this.state = {showResults: false};
     }
 
   return (
       <div>
         <div className="panel panel-default limitWidth homeBox projFix">
-          <div className="mainSkills">
             { this.state.showResults ? <div className="putnamFooter">Putnam Related Skills</div> : null }
+          <div className="mainSkills">
             <div className="skillBlock">
               <h2 className="skillTitle expert">Expert
               </h2>

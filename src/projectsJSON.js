@@ -2,6 +2,7 @@
 const Projs =
 {
   projects: [{
+    projectName: "Prism",
     name: "Prism",
     putnam: "no",
     projURL: "http://prsmphoto.com",
@@ -12,6 +13,7 @@ const Projs =
     description: "\"Prism\" is a photography based web application with an emphasis on a minimalistic aesthetic, tag based search functionality, and a portfolio style user profile. The goal is to provide photographers with a professional and interactive environment to share their work and connect with others.",
     Technologies: "MongoDB, Express.js, JQuery, Node.js, Vanilla JS, SCSS"
   }, {
+    projectName: "AdminPortal",
     name: "Admin Portal",
     putnam: "yes",
     projURL: "",
@@ -22,6 +24,7 @@ const Projs =
     description: "While working as a co-op at Putnam Investments, I worked on a single page application for administration users to access multiple tables. The page displayed necessary information cleanly, and allowed administrative users to edit, add, or delete information seamlessly.",
     Technologies: " JavaScript, Django, Python, CSS"
   }, {
+    projectName: "SMS",
     name: "SMS",
     putnam: "yes",
     projURL: "",

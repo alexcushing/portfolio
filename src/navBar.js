@@ -36,7 +36,7 @@ class Nav extends Component {
                     </Link>
                 </li>
                 <li className={classNames.projects}>
-                    <Link className="nav-link" to="/projects">
+                    <Link className="nav-link" to="/projects" >
                       Projects
                     </Link>
                 </li>
