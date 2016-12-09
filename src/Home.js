@@ -22,7 +22,7 @@ const Home = () => {
           </div>
         </div>
         <div className="linksPanel">
-          <a className="gitLink" href="https://github.com/alexcushing" target="_blank">
+          <a className="gitLink" href="https://github.com/alexcushing/portfolio" target="_blank">
           <img src="http://ocramius.github.io/presentations/proxy-pattern-in-php/assets/img/gh.svg" alt="" className="icon"/> <span className="word"> GitHub</span>
         </a>
           <a className="linkedInLink" href="https://www.linkedin.com/in/alexandercushing" target="_blank">

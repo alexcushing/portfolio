@@ -26517,7 +26517,7 @@
 	            { className: 'linksPanel' },
 	            _react2.default.createElement(
 	              'a',
-	              { className: 'gitLink', href: 'https://github.com/alexcushing', target: '_blank' },
+	              { className: 'gitLink', href: 'https://github.com/alexcushing/portfolio', target: '_blank' },
 	              _react2.default.createElement('img', { src: 'http://ocramius.github.io/presentations/proxy-pattern-in-php/assets/img/gh.svg', alt: '', className: 'icon' }),
 	              ' ',
 	              _react2.default.createElement(
