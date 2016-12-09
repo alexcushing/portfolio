@@ -144,25 +144,26 @@ body {
     display: flex;
     align-self: center;
     justify-content: initial;
+    &:hover{
+      cursor: default !important;
+
+    }
 }
 
 .expert {
     &:hover {
-        cursor: pointer;
         color: $green;
     }
 }
 
 .proficient {
     &:hover {
-        cursor: pointer;
         color: $blue;
     }
 }
 
 .competent {
     &:hover {
-        cursor: pointer;
         color: $orange;
     }
 }

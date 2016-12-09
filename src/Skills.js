@@ -6,10 +6,27 @@ class Skills extends Component {
         super(props);
         this.state = {showResults: false};
         this.getClassName = this.getClassName.bind(this);
+        this.checkPutnamSkills = this.checkPutnamSkills.bind(this);
+    }
+
+    componentWillReceiveProps(){
+        this.checkPutnamSkills()
+    }
+    componentWillMount(){
+        this.checkPutnamSkills()
     }
 
     getClassName(name) {
         return name === 'putnam' ? 'putnam' : name === 'school' ? 'school' : name === 'self' ? 'self' : 'other';
+    }
+
+    checkPutnamSkills(){
+      if (location.pathname === "/skills/putnamSkills") {
+        this.setState({showResults: true});
+      }
+      else{
+        this.setState({showResults: false});
+      }
     }
 
   render() {
@@ -19,16 +36,13 @@ class Skills extends Component {
           school: this.getClassName('school'),
           self: this.getClassName('self')
       };
-      this.state = {showResults: true};
     }
     else{
-      console.log("else");
       var classNames = {
           putnam: this.getClassName('other'),
           school: this.getClassName('other'),
           self: this.getClassName('other')
       };
-      this.state = {showResults: false};
     }
 
   return (

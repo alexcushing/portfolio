@@ -8,7 +8,7 @@ class Projects extends Component {
         this.state = {showResults: false};
         this.checkPutnam = this.checkPutnam.bind(this);
     }
-    
+
     componentWillReceiveProps(){
         this.checkPutnam()
     }
@@ -18,10 +18,8 @@ class Projects extends Component {
 
     checkPutnam(){
         if(location.pathname === "/projects/putnamProjects"){
-            console.log("hide prism")
             this.setState({showResults: true});
         }else{
-            console.log("false")
             this.setState({showResults: false});
         }
     }
