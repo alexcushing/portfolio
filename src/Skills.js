@@ -109,7 +109,7 @@ class Skills extends Component {
             </div>
           </div>
         </div>
-        <Contact value="acushing@cs.uml.edu" />
+        <Contact value="contact@alexcushing" />
       </div>
   );
 }
