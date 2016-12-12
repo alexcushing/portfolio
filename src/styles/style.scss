@@ -1,23 +1,23 @@
-$white: white;
-$grey: #f7f7f9;
-$mediumGrey: grey;
-$darkGrey: #191919;
-$lighterGrey: lighten($darkGrey,25%);
-$black: black;
-$blue: #0099CC;
-$green: #5cb85c;
-$orange: #FF8800;
-$red: #CC0000;
-$darkRed: darken($red,5%);
-$darkBlue: darken($blue,5%);
+@import "colors";
+@import "fonts";
 
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 @mixin size($width, $height: $width) {
     width: $width;
     height: $height;
 }
 
+@keyframes Rocking {
+	0% {
+    transform:rotate(7deg);
+  }
+	50% {
+    transform:rotate(-7deg);
+  }
+	100% {
+    transform:rotate(7deg);
+  }
+}
 
 @keyframes fadeInUp {
     0% {
@@ -108,6 +108,7 @@ body {
     color: $grey;
     @include size(40px);
     &:hover {
+      /*animation: Rocking 1s infinite;*/
         color: $white;
         cursor: pointer;
     }
@@ -129,7 +130,7 @@ body {
       animation: fadeInUpDown 1.3s;
       font-size: 20x;
       color: $white;
-      font-family: 'Ubuntu', sans-serif;
+      font-family: $mainFont;
 }
 
 .limitWidth {
@@ -314,7 +315,7 @@ body {
     position: fixed !important;
     left: 30px;
     color: $mediumGrey;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: $mainFont;
     font-weight: bolder;
     font-size: 25px;
     bottom: 30px;
