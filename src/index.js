@@ -7,7 +7,7 @@ import Skills from './Skills';
 import Projects from './Projects';
 import NotFound from './404';
 import Experience from './experience';
-require ('./style.scss');
+require ('./styles/style.scss');
 
 class App extends Component {
   render() {

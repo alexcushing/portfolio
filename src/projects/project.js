@@ -5,7 +5,7 @@ class Project extends Component {
   constructor(props){
         super(props);
     }
-    
+
     render(){
       const name = this.props.projectName
       for(var i = 0; i < Projs.projects.length; i++){

@@ -30,7 +30,7 @@ class Experience extends Component {
                 </p>
             </div>
         </div>
-        <Contact value="contact@alexcushing" />
+        <Contact value="contact@alexcushing.com" />
     </div>
     );
   }
