@@ -32,7 +32,7 @@ const Home = () => {
       </div>
       </div>
     </div>
-    <Contact value="contact@alexcushing.com" />
+    <Contact value="alexrcushing@gmail.com" />
   </div>
   );
 }

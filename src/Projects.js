@@ -35,7 +35,7 @@ class Projects extends Component {
                 <Project projectName="SMS" url={false} checkPutnam={this.checkPutnam}/>
             </div>
         </div>
-        <Contact value="contact@alexcushing.com" />
+        <Contact value="alexrcushing@gmail.com" />
       </div>
     )
   }
