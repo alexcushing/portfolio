@@ -26695,7 +26695,7 @@
 	        )
 	      )
 	    ),
-	    _react2.default.createElement(_Contact2.default, { value: 'contact@alexcushing.com' })
+	    _react2.default.createElement(_Contact2.default, { value: 'alexrcushing@gmail.com' })
 	  );
 	};
 
@@ -26762,7 +26762,7 @@
 	        this.state.showResults ? _react2.default.createElement(Results, null) : null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'emailPanel', 'data-balloon': 'contact@alexcushing.com', 'data-balloon-pos': 'right', onClick: this.copyToClipboard, ref: 'email' },
+	          { className: 'emailPanel', 'data-balloon': 'alexrcushing@gmail.com', 'data-balloon-pos': 'right', onClick: this.copyToClipboard, ref: 'email' },
 	          _react2.default.createElement(
 	            'span',
 	            null,
@@ -27254,7 +27254,7 @@
 	            )
 	          )
 	        ),
-	        _react2.default.createElement(_Contact2.default, { value: 'contact@alexcushing.com' })
+	        _react2.default.createElement(_Contact2.default, { value: 'alexrcushing@gmail.com' })
 	      );
 	    }
 	  }]);
@@ -27350,7 +27350,7 @@
 	                        _react2.default.createElement(_project2.default, { projectName: 'SMS', url: false, checkPutnam: this.checkPutnam })
 	                    )
 	                ),
-	                _react2.default.createElement(_Contact2.default, { value: 'contact@alexcushing.com' })
+	                _react2.default.createElement(_Contact2.default, { value: 'alexrcushing@gmail.com' })
 	            );
 	        }
 	    }]);
@@ -27654,7 +27654,7 @@
 	                        )
 	                    )
 	                ),
-	                _react2.default.createElement(_Contact2.default, { value: 'contact@alexcushing.com' })
+	                _react2.default.createElement(_Contact2.default, { value: 'alexrcushing@gmail.com' })
 	            );
 	        }
 	    }]);
