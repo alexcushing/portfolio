@@ -26629,7 +26629,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'introduction' },
-	          _react2.default.createElement('img', { className: 'image', src: 'http://alexcushing.com/me.jpeg', alt: 'me' }),
+	          _react2.default.createElement('img', { className: 'image', src: 'https://avatars3.githubusercontent.com/u/14876141?v=3&u=cd28972994a3b223e59227558bf9537f96c6bd44&s=400', alt: 'me' }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'namePanel' },

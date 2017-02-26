@@ -7,7 +7,7 @@ const Home = () => {
     <div className="panel panel-default limitWidth homeBox projFix">
       <div className="panel-body flex-Outer">
         <div className="introduction">
-        <img className="image" src="http://alexcushing.com/me.jpeg" alt="me"/>
+        <img className="image" src="https://avatars3.githubusercontent.com/u/14876141?v=3&u=cd28972994a3b223e59227558bf9537f96c6bd44&s=400" alt="me"/>
         <div className="namePanel">
           <div className="indexCard">
             <h2 className="nameIntro">
