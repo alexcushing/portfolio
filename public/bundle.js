@@ -27113,7 +27113,7 @@
 	  }, {
 	    key: 'checkPutnamSkills',
 	    value: function checkPutnamSkills() {
-	      if (location.pathname === "/skills/putnamSkills") {
+	      if (location.pathname === "/skills/putnam") {
 	        this.setState({ showResults: true });
 	      } else {
 	        this.setState({ showResults: false });
@@ -27122,7 +27122,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (this.props.params.parent === "putnamSkills") {
+	      if (this.props.params.parent === "putnam") {
 	        var classNames = {
 	          putnam: this.getClassName('putnam'),
 	          school: this.getClassName('school'),
@@ -27322,7 +27322,7 @@
 	    }, {
 	        key: 'checkPutnam',
 	        value: function checkPutnam() {
-	            if (location.pathname === "/projects/putnamProjects") {
+	            if (location.pathname === "/projects/putnam") {
 	                this.setState({ showResults: true });
 	            } else {
 	                this.setState({ showResults: false });
@@ -27591,8 +27591,8 @@
 	    _createClass(Experience, [{
 	        key: 'render',
 	        value: function render() {
-	            var linkTo = "/projects/putnamProjects";
-	            var linkToSkills = "/skills/putnamSkills";
+	            var linkTo = "/projects/putnam";
+	            var linkToSkills = "/skills/putnam";
 
 	            return _react2.default.createElement(
 	                'div',

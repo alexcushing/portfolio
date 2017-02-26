@@ -9,8 +9,8 @@ class Experience extends Component {
     }
 
   render() {
-    const linkTo = "/projects/putnamProjects"
-    const linkToSkills = "/skills/putnamSkills"
+    const linkTo = "/projects/putnam"
+    const linkToSkills = "/skills/putnam"
 
     return (
       <div className="panel panel-default limitWidth homeBox projFix">
