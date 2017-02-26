@@ -574,6 +574,7 @@ body {
 
   .limitWidth {
     width: 90% !important;
+    margin-bottom: 25px !important;
   }
 
   .navbar {
@@ -586,5 +587,8 @@ body {
   .nav-item{
     margin-left: 0px !important;
     margin-right: 1rem;
+  }
+  .homeBox{
+    margin-bottom: 25px !important;
   }
 }
