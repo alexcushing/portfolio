@@ -7,7 +7,7 @@ const Home = () => {
     <div className="panel panel-default limitWidth homeBox projFix">
       <div className="panel-body flex-Outer">
         <div className="introduction">
-        <img className="image" src="http://alexcushing.com/public/img/me.jpeg" alt="me"/>
+        <img className="image" src="http://alexcushing.com/me.jpeg" alt="me"/>
         <div className="namePanel">
           <div className="indexCard">
             <h2 className="nameIntro">
@@ -32,7 +32,7 @@ const Home = () => {
       </div>
       </div>
     </div>
-    <Contact value="contact@alexcushing.com" />
+    <Contact value="alexrcushing@gmail.com" />
   </div>
   );
 }

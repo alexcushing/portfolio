@@ -13,6 +13,7 @@
     "babel-preset-react": "^6.16.0",
     "copy-to-clipboard": "^3.0.5",
     "css-loader": "^0.26.1",
+    "express": "^4.14.1",
     "jsonp": "^0.2.0",
     "node-sass": "^3.13.0",
     "react": "^15.4.1",
@@ -25,7 +26,7 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "webpack": "webpack --config webpack.config.js -w",
     "test": "react-scripts test --env=jsdom",
