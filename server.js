@@ -22,6 +22,7 @@ app.get('/experience', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/index.html'));
 } );
 
+
 app.get('/projects/putnam', (req, res) => {
     res.redirect('/');
     //res.sendFile(path.join(__dirname+'/public/index.html'));
@@ -37,6 +38,9 @@ app.get('/public_html/', (req, res) => {
     //res.sendFile(path.join(__dirname+'/public/index.html'));
 } );
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/public/index.html'));
+} );
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
