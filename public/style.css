@@ -222,6 +222,7 @@ body {
   margin: 0 auto;
   display: flex;
   align-items: center;
+  height: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -279,7 +280,7 @@ body {
   color: grey;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 30px;
   bottom: 30px;
 }
 .emailPanel:hover {
@@ -413,6 +414,12 @@ body {
   width: 50%;
   min-width: 250px;
   overflow-x: auto;
+  overflow-y: auto;
+}
+
+.putnamExp::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 .self {
@@ -468,6 +475,44 @@ body {
   /*.emailPanel {
       display: none;
   }*/
+  body{
+    background-color: #f7f7f9;
+  }
+  .emailPanel {
+    position: fixed !important;
+    left: 30px;
+    right: 15px;
+    text-align: right;
+    color: grey;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+    bottom: 15px !important;
+}
+
+[data-balloon]:after {
+  display: none;
+}
+
+[data-balloon-pos=right]:before {
+  display: none !important;
+}
+.copied {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #191919;
+  position: fixed;
+  bottom: 75px;
+  right: 25px !important;
+  left: 65% !important;
+  width: 30%;
+  display: inline-block;
+  animation: fadeInUpDown 1.3s;
+  text-align: center;
+  font-size: 20x;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+}
   .putnamFooter {
     display: none;
   }
@@ -482,6 +527,7 @@ body {
   }
 
   .flex-Outer {
+    margin: 1% !important;
     flex-direction: column;
     align-items: center;
   }
@@ -494,19 +540,19 @@ body {
   .fione {
     border: 1px solid #0099CC;
     animation: fadeIn .4s;
-    width: 100%;
+    width: 90%;
   }
 
   .fitwo {
     border: 1px solid #CC0000;
     animation: fadeIn .5s;
-    width: 100%;
+    width: 90%;
   }
 
   .fithree {
     border: 1px solid #5cb85c;
     animation: fadeIn .6s;
-    width: 100%;
+    width: 90%;
   }
 
   .indexCard {
@@ -532,5 +578,13 @@ body {
 
   .navbar {
     position: sticky !important;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid .1px #5cb85c;
+  }
+
+  .nav-item{
+    margin-left: 0px !important;
+    margin-right: 1rem;
   }
 }

@@ -26766,7 +26766,7 @@
 	          _react2.default.createElement(
 	            'span',
 	            null,
-	            '@'
+	            '\uD83D\uDCE7'
 	          )
 	        )
 	      );

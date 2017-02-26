@@ -25,7 +25,7 @@ class Contact extends Component {
       <div className="contact-outer">
         { this.state.showResults ? <Results /> : null }
         <div className="emailPanel" data-balloon="alexrcushing@gmail.com" data-balloon-pos="right" onClick={this.copyToClipboard} ref="email">
-          <span>@</span>
+          <span>📧</span>
         </div>
     </div>
     );
