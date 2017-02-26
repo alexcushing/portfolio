@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import copy from 'copy-to-clipboard';
+var FontAwesome = require('react-fontawesome');
 
 class Contact extends Component {
   constructor(props){
@@ -25,7 +26,7 @@ class Contact extends Component {
       <div className="contact-outer">
         { this.state.showResults ? <Results /> : null }
         <div className="emailPanel" data-balloon="alexrcushing@gmail.com" data-balloon-pos="right" onClick={this.copyToClipboard} ref="email">
-          <span>📧</span>
+          <span><FontAwesome name='envelope' /></span>
         </div>
     </div>
     );
