@@ -478,6 +478,7 @@ body {
   body{
     background-color: #f7f7f9;
   }
+
   .emailPanel {
     position: fixed !important;
     left: 30px;
@@ -540,19 +541,19 @@ body {
   .fione {
     border: 1px solid #0099CC;
     animation: fadeIn .4s;
-    width: 90%;
+    width: 70%;
   }
 
   .fitwo {
     border: 1px solid #CC0000;
     animation: fadeIn .5s;
-    width: 90%;
+    width: 70%;
   }
 
   .fithree {
     border: 1px solid #5cb85c;
     animation: fadeIn .6s;
-    width: 90%;
+    width: 70%;
   }
 
   .indexCard {
