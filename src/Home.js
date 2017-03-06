@@ -7,20 +7,22 @@ const Home = () => {
     <div className="panel panel-default limitWidth homeBox projFix">
       <div className="panel-body flex-Outer">
         <div className="introduction">
-        <img className="image" src="https://avatars3.githubusercontent.com/u/14876141?v=3&u=cd28972994a3b223e59227558bf9537f96c6bd44&s=400" alt="me"/>
-        <div className="namePanel">
-          <div className="indexCard">
-            <h2 className="nameIntro">
-              Alex Cushing
-            </h2>
-            <div>
-              <blockquote>
-                <p>Web & Software Developer</p>
-                <footer>Student <cite title="school">UMass Lowell</cite></footer>
-              </blockquote>
+          <div className="imageAndTitle">
+          <img className="image" src="https://avatars3.githubusercontent.com/u/14876141?v=3&u=cd28972994a3b223e59227558bf9537f96c6bd44&s=400" alt="me"/>
+          <div className="namePanel">
+            <div className="indexCard">
+              <h2 className="nameIntro">
+                Alex Cushing
+              </h2>
+              <div>
+                <blockquote>
+                  <p>Web & Software Developer</p>
+                  <footer>Student <cite title="school">UMass Lowell</cite></footer>
+                </blockquote>
+            </div>
+            </div>
           </div>
           </div>
-        </div>
         <div className="linksPanel">
           <a className="gitLink" href="https://github.com/alexcushing/portfolio" target="_blank">
           <img src="http://ocramius.github.io/presentations/proxy-pattern-in-php/assets/img/gh.svg" alt="" className="icon"/> <span className="word"> GitHub</span>

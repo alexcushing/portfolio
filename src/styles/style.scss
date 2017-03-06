@@ -254,10 +254,18 @@ body {
     background: $white !important;
 }
 
+.imageAndTitle{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
 .introduction {
     margin: 0 auto;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -504,6 +512,11 @@ body {
     margin-left: 5px;
 }
 
+
+.putnamExp::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
 @media all and (max-width: 768px) {
   /*.emailPanel {
       display: none;
@@ -514,6 +527,7 @@ body {
   }
 
   body{
+      height: 100vh;
     background-color: $grey;
   }
 
