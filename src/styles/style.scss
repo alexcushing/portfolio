@@ -255,17 +255,18 @@ body {
 }
 
 .imageAndTitle{
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 10%;
+    align-items: center;
+    margin-top: 5%;
     margin-bottom: 5%;
 }
 
 .introduction {
     margin: 0 auto;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     justify-content: center;
 }
