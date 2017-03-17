@@ -141,6 +141,14 @@ body {
     margin-top: 25px;
 }
 
+.panel-projects{
+    display: flex;
+    flex:1;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
 .skillTitle {
     display: flex;
     align-self: center;
@@ -594,29 +602,37 @@ body {
     margin: 1% !important;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
-  .flex-item {
-    margin: 10% !important;
-    padding: 10% !important;
-  }
 
-  .fione {
-    border: 1px solid $blue;
-    animation: fadeIn .4s;
-    width: 70%;
-  }
 
-  .fitwo {
-    border: 1px solid $red;
-    animation: fadeIn .5s;
-    width: 70%;
-  }
+  // .flex-item {
+  //   margin: 10% !important;
+  //   padding: 10% !important;
+  // }
+  //
+  // .fione {
+  //   border: 1px solid $blue;
+  //   animation: fadeIn .4s;
+  //   width: 100%;
+  // }
+  //
+  // .fitwo {
+  //   border: 1px solid $red;
+  //   animation: fadeIn .5s;
+  //   width: 100%;
+  // }
+  //
+  // .fithree {
+  //   border: 1px solid $green;
+  //   animation: fadeIn .6s;
+  //   width: 100%;
+  // }
 
-  .fithree {
-    border: 1px solid $green;
-    animation: fadeIn .6s;
-    width: 70%;
+  .panel-projects{
+    flex-direction: column;
+    align-items: center;
   }
 
   .indexCard {
