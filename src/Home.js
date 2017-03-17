@@ -4,8 +4,7 @@ import Contact from './Contact';
 const Home = () => {
   return (
   <div>
-    <div className="panel panel-default limitWidth homeBox projFix">
-      <div className="panel-body flex-Outer">
+    <div className="panel panel-default limitWidth homeBox projFix justMain">
         <div className="introduction">
           <div className="imageAndTitle">
           <img className="image" src="https://avatars3.githubusercontent.com/u/14876141?v=3&u=cd28972994a3b223e59227558bf9537f96c6bd44&s=400" alt="me"/>
@@ -31,7 +30,6 @@ const Home = () => {
           <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" alt="" className="icon"/> <span className="word"> LinkedIn</span>
         </a>
         </div>
-      </div>
       </div>
     </div>
     <Contact value="alexrcushing@gmail.com" />

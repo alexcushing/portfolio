@@ -230,8 +230,17 @@ body {
 .homeBox {
    height: 100% !important;
    position: relative;
+   display: flex;
+   align-content: center;
+   justify-content: center;
     min-height: 75vh !important;
    background-color: $grey;
+}
+
+.justMain{
+
+  display: flex;
+  flex-direction: column;
 }
 
 .projFix{
@@ -264,11 +273,11 @@ body {
 }
 
 .introduction {
-    margin: 0 auto;
     display: flex;
-    align-items: center;
+    flex: 1;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .nameIntro {
@@ -276,8 +285,9 @@ body {
 }
 
 .linksPanel {
-    width: 75%;
-    display: inline-block;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     cursor: pointer;
     animation: fadeInUp .5s;
 }
