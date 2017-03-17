@@ -607,11 +607,16 @@ body {
   }
 
 
-  //
-  // .flex-item {
-  //   margin: 10% !important;
-  //   padding: 10% !important;
-  // }
+  .flex-item {
+      overflow-y: auto;
+      flex: 3;
+      padding: 20px;
+      margin: 20px;
+      min-width: 0;
+      max-width: 450px;
+      width: auto;
+      height: auto;
+  }
 
   // .fione {
   //   border: 1px solid $blue;
@@ -632,6 +637,8 @@ body {
   // }
 
   .panel-projects{
+    overflow-x: hidden;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -650,6 +657,10 @@ body {
     border-radius: 50%;
   }
 
+  .linksPanel {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
 
   .limitWidth {
     width: 90% !important;
