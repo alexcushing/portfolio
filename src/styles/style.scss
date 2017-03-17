@@ -594,6 +594,7 @@ body {
     margin: 1% !important;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   .flex-item {
@@ -604,19 +605,19 @@ body {
   .fione {
     border: 1px solid $blue;
     animation: fadeIn .4s;
-    width: 70%;
+    width: 100%;
   }
 
   .fitwo {
     border: 1px solid $red;
     animation: fadeIn .5s;
-    width: 70%;
+    width: 100%;
   }
 
   .fithree {
     border: 1px solid $green;
     animation: fadeIn .6s;
-    width: 70%;
+    width: 100%;
   }
 
   .indexCard {
