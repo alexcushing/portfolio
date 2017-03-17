@@ -17,7 +17,7 @@ class Projects extends Component {
     }
 
     checkPutnam(){
-        if(location.pathname === "/projects/putnamProjects"){
+        if(location.pathname === "/projects/putnam"){
             this.setState({showResults: true});
         }else{
             this.setState({showResults: false});

@@ -230,8 +230,17 @@ body {
 .homeBox {
    height: 100% !important;
    position: relative;
+   display: flex;
+   align-content: center;
+   justify-content: center;
     min-height: 75vh !important;
    background-color: $grey;
+}
+
+.justMain{
+
+  display: flex;
+  flex-direction: column;
 }
 
 .projFix{
@@ -254,12 +263,21 @@ body {
     background: $white !important;
 }
 
-.introduction {
-    margin: 0 auto;
+.imageAndTitle{
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.introduction {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .nameIntro {
@@ -267,8 +285,9 @@ body {
 }
 
 .linksPanel {
-    width: 75%;
-    display: inline-block;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     cursor: pointer;
     animation: fadeInUp .5s;
 }
@@ -504,62 +523,136 @@ body {
     margin-left: 5px;
 }
 
-@media all and (max-width: 768px) {
-    /*.emailPanel {
-        display: none;
-    }*/
-    .putnamFooter{
-      display: none;
 
-    }
-    .word {
-        display: none;
-    }
-    .mainSkills {
-        flex-direction: column;
-        overflow-y: auto;
-    }
-    .flex-Outer {
-        flex-direction: column;
-        align-items: center;
-    }
-    .flex-item {
-        margin: 10% !important;
-        padding: 10% !important;
-    }
-    .fione {
-        border: 1px solid $blue;
-        animation: fadeIn .4s;
-        width: 100%;
-    }
-    .fitwo {
-        border: 1px solid $red;
-        animation: fadeIn .5s;
-        width: 100%;
-    }
-    .fithree {
-        border: 1px solid $green;
-        animation: fadeIn .6s;
-        width: 100%;
-    }
-    .indexCard {
-        height: auto !important;
-        animation: fadeInUp .3s;
-    }
-    .image {
-      width: 170px;
-      height: 170px;
-      display: inline-block;
-      animation: fadeInUp .3s;
-      border-radius: 50%;
-    }
-    .linksPanel{
-      width: 50% !important;
-    }
-    .limitWidth {
-    width: 90% !important;
+.putnamExp::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+@media all and (max-width: 768px) {
+  /*.emailPanel {
+      display: none;
+  }*/
+
+  .App{
+      width: 100vw;
   }
-    .navbar{
-        position: sticky !important;
-    }
+
+  body{
+      height: 100vh;
+    background-color: $grey;
+  }
+
+  .emailPanel {
+    position: inherit;
+    left: 30px;
+    right: 15px;
+    text-align: right;
+    color: grey;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    bottom: 15px !important;
+}
+
+[data-balloon]:after {
+  display: none;
+}
+
+[data-balloon-pos=right]:before {
+  display: none !important;
+}
+.copied {
+  padding: 10px;
+  border-radius: 5px;
+  background-color:$darkGrey;
+  position: fixed;
+  bottom: 75px;
+  right: 25px !important;
+  left: 65% !important;
+  width: 30%;
+  display: inline-block;
+  animation: fadeInUpDown 1.3s;
+  text-align: center;
+  font-size: 20x;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+}
+  .putnamFooter {
+    display: none;
+  }
+
+  .word {
+    display: none;
+  }
+
+  .mainSkills {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .flex-Outer {
+    margin: 1% !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex-item {
+    margin: 10% !important;
+    padding: 10% !important;
+  }
+
+  .fione {
+    border: 1px solid $blue;
+    animation: fadeIn .4s;
+    width: 70%;
+  }
+
+  .fitwo {
+    border: 1px solid $red;
+    animation: fadeIn .5s;
+    width: 70%;
+  }
+
+  .fithree {
+    border: 1px solid $green;
+    animation: fadeIn .6s;
+    width: 70%;
+  }
+
+  .indexCard {
+    height: auto !important;
+    animation: fadeInUp .3s;
+  }
+
+  .image {
+    width: 170px;
+    height: 170px;
+    display: inline-block;
+    animation: fadeInUp .3s;
+    border-radius: 50%;
+  }
+
+  .linksPanel {
+    width: 50% !important;
+  }
+
+  .limitWidth {
+    width: 90% !important;
+    margin-bottom: 25px !important;
+  }
+
+  .navbar {
+    position: sticky !important;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid .1px $green;
+  }
+
+  .nav-item{
+    margin-left: 0px !important;
+    margin-right: 1rem;
+  }
+  .homeBox{
+    margin-bottom: 25px !important;
+  }
 }

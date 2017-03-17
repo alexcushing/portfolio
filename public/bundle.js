@@ -60,23 +60,23 @@
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _navBar = __webpack_require__(237);
+	var _navBar = __webpack_require__(239);
 
 	var _navBar2 = _interopRequireDefault(_navBar);
 
-	var _Skills = __webpack_require__(238);
+	var _Skills = __webpack_require__(240);
 
 	var _Skills2 = _interopRequireDefault(_Skills);
 
-	var _Projects = __webpack_require__(239);
+	var _Projects = __webpack_require__(241);
 
 	var _Projects2 = _interopRequireDefault(_Projects);
 
-	var _ = __webpack_require__(242);
+	var _ = __webpack_require__(244);
 
 	var _2 = _interopRequireDefault(_);
 
-	var _experience = __webpack_require__(243);
+	var _experience = __webpack_require__(245);
 
 	var _experience2 = _interopRequireDefault(_experience);
 
@@ -88,7 +88,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(244);
+	__webpack_require__(246);
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -24707,11 +24707,11 @@
 	 */
 	var useQueries = function useQueries(createHistory) {
 	  return function () {
-	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	    var history = createHistory(options);
-	    var stringifyQuery = options.stringifyQuery;
-	    var parseQueryString = options.parseQueryString;
+	    var stringifyQuery = options.stringifyQuery,
+	        parseQueryString = options.parseQueryString;
 
 
 	    if (typeof stringifyQuery !== 'function') stringifyQuery = defaultStringifyQuery;
@@ -25058,7 +25058,7 @@
 	exports.__esModule = true;
 	exports.locationsAreEqual = exports.statesAreEqual = exports.createLocation = exports.createQuery = undefined;
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -25081,9 +25081,9 @@
 	};
 
 	var createLocation = exports.createLocation = function createLocation() {
-	  var input = arguments.length <= 0 || arguments[0] === undefined ? '/' : arguments[0];
-	  var action = arguments.length <= 1 || arguments[1] === undefined ? _Actions.POP : arguments[1];
-	  var key = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+	  var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '/';
+	  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _Actions.POP;
+	  var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
 	  var object = typeof input === 'string' ? (0, _PathUtils.parsePath)(input) : input;
 
@@ -25163,12 +25163,10 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var addQueryStringValueToPath = exports.addQueryStringValueToPath = function addQueryStringValueToPath(path, key, value) {
-	  var _parsePath = parsePath(path);
-
-	  var pathname = _parsePath.pathname;
-	  var search = _parsePath.search;
-	  var hash = _parsePath.hash;
-
+	  var _parsePath = parsePath(path),
+	      pathname = _parsePath.pathname,
+	      search = _parsePath.search,
+	      hash = _parsePath.hash;
 
 	  return createPath({
 	    pathname: pathname,
@@ -25178,12 +25176,10 @@
 	};
 
 	var stripQueryStringValueFromPath = exports.stripQueryStringValueFromPath = function stripQueryStringValueFromPath(path, key) {
-	  var _parsePath2 = parsePath(path);
-
-	  var pathname = _parsePath2.pathname;
-	  var search = _parsePath2.search;
-	  var hash = _parsePath2.hash;
-
+	  var _parsePath2 = parsePath(path),
+	      pathname = _parsePath2.pathname,
+	      search = _parsePath2.search,
+	      hash = _parsePath2.hash;
 
 	  return createPath({
 	    pathname: pathname,
@@ -25195,9 +25191,8 @@
 	};
 
 	var getQueryStringValueFromPath = exports.getQueryStringValueFromPath = function getQueryStringValueFromPath(path, key) {
-	  var _parsePath3 = parsePath(path);
-
-	  var search = _parsePath3.search;
+	  var _parsePath3 = parsePath(path),
+	      search = _parsePath3.search;
 
 	  var match = search.match(new RegExp('[?&]' + key + '=([a-zA-Z0-9]+)'));
 	  return match && match[1];
@@ -25239,10 +25234,10 @@
 	var createPath = exports.createPath = function createPath(location) {
 	  if (location == null || typeof location === 'string') return location;
 
-	  var basename = location.basename;
-	  var pathname = location.pathname;
-	  var search = location.search;
-	  var hash = location.hash;
+	  var basename = location.basename,
+	      pathname = location.pathname,
+	      search = location.search,
+	      hash = location.hash;
 
 	  var path = (basename || '') + pathname;
 
@@ -25274,7 +25269,7 @@
 
 	var useBasename = function useBasename(createHistory) {
 	  return function () {
-	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	    var history = createHistory(options);
 	    var basename = options.basename;
@@ -25284,7 +25279,7 @@
 	      if (!location) return location;
 
 	      if (basename && location.basename == null) {
-	        if (location.pathname.indexOf(basename) === 0) {
+	        if (location.pathname.toLowerCase().indexOf(basename.toLowerCase()) === 0) {
 	          location.pathname = location.pathname.substring(basename.length);
 	          location.basename = basename;
 
@@ -25408,7 +25403,7 @@
 	};
 
 	var createMemoryHistory = function createMemoryHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	  if (Array.isArray(options)) {
 	    options = { entries: options };
@@ -25475,9 +25470,9 @@
 	    go: go
 	  }));
 
-	  var _options = options;
-	  var entries = _options.entries;
-	  var current = _options.current;
+	  var _options = options,
+	      entries = _options.entries,
+	      current = _options.current;
 
 
 	  if (typeof entries === 'string') {
@@ -25537,13 +25532,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var createHistory = function createHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	  var getCurrentLocation = options.getCurrentLocation;
-	  var getUserConfirmation = options.getUserConfirmation;
-	  var pushLocation = options.pushLocation;
-	  var replaceLocation = options.replaceLocation;
-	  var go = options.go;
-	  var keyLength = options.keyLength;
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var getCurrentLocation = options.getCurrentLocation,
+	      getUserConfirmation = options.getUserConfirmation,
+	      pushLocation = options.pushLocation,
+	      replaceLocation = options.replaceLocation,
+	      go = options.go,
+	      keyLength = options.keyLength;
 
 
 	  var currentLocation = void 0;
@@ -25672,7 +25667,7 @@
 	  };
 
 	  var createLocation = function createLocation(location, action) {
-	    var key = arguments.length <= 2 || arguments[2] === undefined ? createKey() : arguments[2];
+	    var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : createKey();
 	    return (0, _LocationUtils.createLocation)(location, action, key);
 	  };
 
@@ -25912,18 +25907,18 @@
 	 * behavior using { forceRefresh: true } in options.
 	 */
 	var createBrowserHistory = function createBrowserHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Browser history needs a DOM') : (0, _invariant2.default)(false) : void 0;
 
 	  var useRefresh = options.forceRefresh || !(0, _DOMUtils.supportsHistory)();
 	  var Protocol = useRefresh ? RefreshProtocol : BrowserProtocol;
 
-	  var getUserConfirmation = Protocol.getUserConfirmation;
-	  var getCurrentLocation = Protocol.getCurrentLocation;
-	  var pushLocation = Protocol.pushLocation;
-	  var replaceLocation = Protocol.replaceLocation;
-	  var go = Protocol.go;
+	  var getUserConfirmation = Protocol.getUserConfirmation,
+	      getCurrentLocation = Protocol.getCurrentLocation,
+	      pushLocation = Protocol.pushLocation,
+	      replaceLocation = Protocol.replaceLocation,
+	      go = Protocol.go;
 
 
 	  var history = (0, _createHistory2.default)(_extends({
@@ -26029,8 +26024,9 @@
 
 	var startListener = exports.startListener = function startListener(listener) {
 	  var handlePopState = function handlePopState(event) {
-	    if (event.state !== undefined) // Ignore extraneous popstate events in WebKit
-	      listener(_createLocation(event.state));
+	    if ((0, _DOMUtils.isExtraneousPopstateEvent)(event)) // Ignore extraneous popstate events in WebKit
+	      return;
+	    listener(_createLocation(event.state));
 	  };
 
 	  (0, _DOMUtils.addEventListener)(window, PopStateEvent, handlePopState);
@@ -26053,8 +26049,8 @@
 	};
 
 	var updateLocation = function updateLocation(location, updateState) {
-	  var state = location.state;
-	  var key = location.key;
+	  var state = location.state,
+	      key = location.key;
 
 
 	  if (state !== undefined) (0, _DOMStateStorage.saveState)(key, state);
@@ -26121,6 +26117,15 @@
 	 */
 	var supportsPopstateOnHashchange = exports.supportsPopstateOnHashchange = function supportsPopstateOnHashchange() {
 	  return window.navigator.userAgent.indexOf('Trident') === -1;
+	};
+
+	/**
+	 * Returns true if a given popstate event is an extraneous WebKit event.
+	 * Accounts for the fact that Chrome on iOS fires real popstate events
+	 * containing undefined state when pressing the back button.
+	 */
+	var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
+	  return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 	};
 
 /***/ },
@@ -26363,12 +26368,12 @@
 	};
 
 	var createHashHistory = function createHashHistory() {
-	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Hash history needs a DOM') : (0, _invariant2.default)(false) : void 0;
 
-	  var queryKey = options.queryKey;
-	  var hashType = options.hashType;
+	  var queryKey = options.queryKey,
+	      hashType = options.hashType;
 
 
 	  process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(queryKey !== false, 'Using { queryKey: false } no longer works. Instead, just don\'t ' + 'use location state if you don\'t want a key in your URL query string') : void 0;
@@ -26563,8 +26568,8 @@
 	};
 
 	var updateLocation = function updateLocation(location, pathCoder, queryKey, updateHash) {
-	  var state = location.state;
-	  var key = location.key;
+	  var state = location.state,
+	      key = location.key;
 
 
 	  var path = pathCoder.encodePath((0, _PathUtils.createPath)(location));
@@ -26622,14 +26627,14 @@
 	    null,
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'panel panel-default limitWidth homeBox projFix' },
+	      { className: 'panel panel-default limitWidth homeBox projFix justMain' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'panel-body flex-Outer' },
+	        { className: 'introduction' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'introduction' },
-	          _react2.default.createElement('img', { className: 'image', src: 'http://alexcushing.com/me.jpeg', alt: 'me' }),
+	          { className: 'imageAndTitle' },
+	          _react2.default.createElement('img', { className: 'image', src: 'https://avatars3.githubusercontent.com/u/14876141?v=3&u=cd28972994a3b223e59227558bf9537f96c6bd44&s=400', alt: 'me' }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'namePanel' },
@@ -26665,31 +26670,31 @@
 	                )
 	              )
 	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'linksPanel' },
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'gitLink', href: 'https://github.com/alexcushing/portfolio', target: '_blank' },
+	            _react2.default.createElement('img', { src: 'http://ocramius.github.io/presentations/proxy-pattern-in-php/assets/img/gh.svg', alt: '', className: 'icon' }),
+	            ' ',
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'word' },
+	              ' GitHub'
+	            )
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'linksPanel' },
+	            'a',
+	            { className: 'linkedInLink', href: 'https://www.linkedin.com/in/alexandercushing', target: '_blank' },
+	            _react2.default.createElement('img', { src: 'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png', alt: '', className: 'icon' }),
+	            ' ',
 	            _react2.default.createElement(
-	              'a',
-	              { className: 'gitLink', href: 'https://github.com/alexcushing/portfolio', target: '_blank' },
-	              _react2.default.createElement('img', { src: 'http://ocramius.github.io/presentations/proxy-pattern-in-php/assets/img/gh.svg', alt: '', className: 'icon' }),
-	              ' ',
-	              _react2.default.createElement(
-	                'span',
-	                { className: 'word' },
-	                ' GitHub'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'linkedInLink', href: 'https://www.linkedin.com/in/alexandercushing', target: '_blank' },
-	              _react2.default.createElement('img', { src: 'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png', alt: '', className: 'icon' }),
-	              ' ',
-	              _react2.default.createElement(
-	                'span',
-	                { className: 'word' },
-	                ' LinkedIn'
-	              )
+	              'span',
+	              { className: 'word' },
+	              ' LinkedIn'
 	            )
 	          )
 	        )
@@ -26729,6 +26734,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var FontAwesome = __webpack_require__(237);
+
 	var Contact = function (_Component) {
 	  _inherits(Contact, _Component);
 
@@ -26766,7 +26773,7 @@
 	          _react2.default.createElement(
 	            'span',
 	            null,
-	            '@'
+	            _react2.default.createElement(FontAwesome, { name: 'envelope' })
 	          )
 	        )
 	      );
@@ -26949,6 +26956,148 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _screenReaderStyles = __webpack_require__(238);
+
+	var _screenReaderStyles2 = _interopRequireDefault(_screenReaderStyles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	/**
+	 * A React component for the font-awesome icon library.
+	 *
+	 *
+	 * @param {String} [ariaLabel] An extra accessibility label to put on the icon
+	 * @param {Boolean} [border=false] Whether or not to show a border radius
+	 * @param {String} [className] An extra set of CSS classes to add to the component
+	 * @param {Object} [cssModule] Option to pass FontAwesome CSS as a module
+	 * @param {Boolean} [fixedWidth=false] Make buttons fixed width
+	 * @param {String} [flip=false] Flip the icon's orientation.
+	 * @param {Boolean} [inverse=false]Inverse the icon's color
+	 * @param {String} name Name of the icon to use
+	 * @param {Boolean} [pulse=false] Rotate icon with 8 steps (rather than smoothly)
+	 * @param {Number} [rotate] The degress to rotate the icon by
+	 * @param {String} [size] The icon scaling size
+	 * @param {Boolean} [spin=false] Spin the icon
+	 * @param {String} [stack] Stack an icon on top of another
+	 * @param {String} [tag=span] The HTML tag to use as a string (eg 'i' or 'em')
+	 * @module FontAwesome
+	 * @type {ReactClass}
+	 */
+	exports.default = _react2.default.createClass({
+
+	  displayName: 'FontAwesome',
+
+	  propTypes: {
+	    ariaLabel: _react2.default.PropTypes.string,
+	    border: _react2.default.PropTypes.bool,
+	    className: _react2.default.PropTypes.string,
+	    cssModule: _react2.default.PropTypes.object,
+	    fixedWidth: _react2.default.PropTypes.bool,
+	    flip: _react2.default.PropTypes.oneOf(['horizontal', 'vertical']),
+	    inverse: _react2.default.PropTypes.bool,
+	    name: _react2.default.PropTypes.string.isRequired,
+	    pulse: _react2.default.PropTypes.bool,
+	    rotate: _react2.default.PropTypes.oneOf([90, 180, 270]),
+	    size: _react2.default.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+	    spin: _react2.default.PropTypes.bool,
+	    stack: _react2.default.PropTypes.oneOf(['1x', '2x']),
+	    tag: _react2.default.PropTypes.string
+	  },
+
+	  render: function render() {
+	    var _props = this.props;
+	    var border = _props.border;
+	    var cssModule = _props.cssModule;
+	    var className = _props.className;
+	    var fixedWidth = _props.fixedWidth;
+	    var flip = _props.flip;
+	    var inverse = _props.inverse;
+	    var name = _props.name;
+	    var pulse = _props.pulse;
+	    var rotate = _props.rotate;
+	    var size = _props.size;
+	    var spin = _props.spin;
+	    var stack = _props.stack;
+	    var _props$tag = _props.tag;
+	    var tag = _props$tag === undefined ? 'span' : _props$tag;
+	    var ariaLabel = _props.ariaLabel;
+
+	    var props = _objectWithoutProperties(_props, ['border', 'cssModule', 'className', 'fixedWidth', 'flip', 'inverse', 'name', 'pulse', 'rotate', 'size', 'spin', 'stack', 'tag', 'ariaLabel']);
+
+	    var classNames = [];
+
+	    if (cssModule) {
+	      classNames.push(cssModule['fa']);
+	      classNames.push(cssModule['fa-' + name]);
+	      size && classNames.push(cssModule['fa-' + size]);
+	      spin && classNames.push(cssModule['fa-spin']);
+	      pulse && classNames.push(cssModule['fa-pulse']);
+	      border && classNames.push(cssModule['fa-border']);
+	      fixedWidth && classNames.push(cssModule['fa-fw']);
+	      inverse && classNames.push(cssModule['fa-inverse']);
+	      flip && classNames.push(cssModule['fa-flip-' + flip]);
+	      rotate && classNames.push(cssModule['fa-rotate-' + rotate]);
+	      stack && classNames.push(cssModule['fa-stack-' + stack]);
+	    } else {
+	      classNames.push('fa');
+	      classNames.push('fa-' + name);
+	      size && classNames.push('fa-' + size);
+	      spin && classNames.push('fa-spin');
+	      pulse && classNames.push('fa-pulse');
+	      border && classNames.push('fa-border');
+	      fixedWidth && classNames.push('fa-fw');
+	      inverse && classNames.push('fa-inverse');
+	      flip && classNames.push('fa-flip-' + flip);
+	      rotate && classNames.push('fa-rotate-' + rotate);
+	      stack && classNames.push('fa-stack-' + stack);
+	    }
+
+	    // Add any custom class names at the end.
+	    className && classNames.push(className);
+	    return _react2.default.createElement(tag, _extends({}, props, { 'aria-hidden': true, className: classNames.join(' ') }), ariaLabel ? _react2.default.createElement('span', { style: _screenReaderStyles2.default }, ariaLabel) : null);
+	  }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 238 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  position: 'absolute',
+	  width: '1px',
+	  height: '1px',
+	  padding: '0px',
+	  margin: '-1px',
+	  overflow: 'hidden',
+	  clip: 'rect(0px, 0px, 0px, 0px)',
+	  border: '0px'
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -27054,7 +27203,7 @@
 	exports.default = Nav;
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27113,7 +27262,7 @@
 	  }, {
 	    key: 'checkPutnamSkills',
 	    value: function checkPutnamSkills() {
-	      if (location.pathname === "/skills/putnamSkills") {
+	      if (location.pathname === "/skills/putnam") {
 	        this.setState({ showResults: true });
 	      } else {
 	        this.setState({ showResults: false });
@@ -27122,7 +27271,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (this.props.params.parent === "putnamSkills") {
+	      if (this.props.params.parent === "putnam") {
 	        var classNames = {
 	          putnam: this.getClassName('putnam'),
 	          school: this.getClassName('school'),
@@ -27265,7 +27414,7 @@
 	exports.default = Skills;
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27284,7 +27433,7 @@
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _project = __webpack_require__(240);
+	var _project = __webpack_require__(242);
 
 	var _project2 = _interopRequireDefault(_project);
 
@@ -27322,7 +27471,7 @@
 	    }, {
 	        key: 'checkPutnam',
 	        value: function checkPutnam() {
-	            if (location.pathname === "/projects/putnamProjects") {
+	            if (location.pathname === "/projects/putnam") {
 	                this.setState({ showResults: true });
 	            } else {
 	                this.setState({ showResults: false });
@@ -27365,7 +27514,7 @@
 	*/
 
 /***/ },
-/* 240 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27380,7 +27529,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _projectsJSON = __webpack_require__(241);
+	var _projectsJSON = __webpack_require__(243);
 
 	var _projectsJSON2 = _interopRequireDefault(_projectsJSON);
 
@@ -27451,7 +27600,7 @@
 	exports.default = Project;
 
 /***/ },
-/* 241 */
+/* 243 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -27500,7 +27649,7 @@
 	exports.default = Projs;
 
 /***/ },
-/* 242 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27550,7 +27699,7 @@
 	exports.default = NotFound;
 
 /***/ },
-/* 243 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27591,8 +27740,8 @@
 	    _createClass(Experience, [{
 	        key: 'render',
 	        value: function render() {
-	            var linkTo = "/projects/putnamProjects";
-	            var linkToSkills = "/skills/putnamSkills";
+	            var linkTo = "/projects/putnam";
+	            var linkToSkills = "/skills/putnam";
 
 	            return _react2.default.createElement(
 	                'div',
@@ -27665,16 +27814,16 @@
 	exports.default = Experience;
 
 /***/ },
-/* 244 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(245);
+	var content = __webpack_require__(247);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(247)(content, {});
+	var update = __webpack_require__(249)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27691,21 +27840,21 @@
 	}
 
 /***/ },
-/* 245 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(246)();
+	exports = module.exports = __webpack_require__(248)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ubuntu);", ""]);
 
 	// module
-	exports.push([module.id, "@keyframes Rocking {\n  0% {\n    transform: rotate(7deg); }\n  50% {\n    transform: rotate(-7deg); }\n  100% {\n    transform: rotate(7deg); } }\n\n@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeInUpDown {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  50% {\n    opacity: 1;\n    transform: none; }\n  100% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.notFound {\n  font-size: 25px;\n  color: grey;\n  animation: fadeInUp .2s;\n  display: flex;\n  transition: all 0.15s ease-out;\n  align-self: center; }\n  .notFound:hover {\n    font-size: 20px;\n    cursor: default;\n    transition: all 0.15s ease-out;\n    color: #b30000; }\n\n.notFoundLettering {\n  font-size: 50px;\n  color: #191919;\n  animation: fadeInUp .5s;\n  margin-bottom: 20px;\n  pading-bottom: 20px;\n  transition: all 0.15s ease-out; }\n  .notFoundLettering:hover {\n    transition: all 0.15s ease-out;\n    font-size: 75px;\n    cursor: default;\n    color: #CC0000; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    /*animation: Rocking 1s infinite;*/\n    color: white;\n    cursor: pointer; }\n\n[data-balloon]:after {\n  font-size: 15px !important; }\n\n.copied {\n  padding: 10px;\n  border-radius: 5px;\n  background-color: #191919;\n  position: fixed;\n  bottom: 75px;\n  left: 25px;\n  animation: fadeInUpDown 1.3s;\n  font-size: 20x;\n  color: white;\n  font-family: \"Ubuntu\", sans-serif; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n  .skillTitle:hover {\n    cursor: default !important; }\n\n.expert:hover {\n  color: #5cb85c; }\n\n.proficient:hover {\n  color: #0099CC; }\n\n.competent:hover {\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 100% !important;\n  position: relative;\n  min-height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.projFix {\n  min-height: 75vh !important; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.introduction {\n  margin: 0 auto;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  justify-content: center; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 75%;\n  display: inline-block;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: fixed !important;\n  left: 30px;\n  color: grey;\n  font-family: \"Ubuntu\", sans-serif;\n  font-weight: bolder;\n  font-size: 25px;\n  bottom: 30px; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: pointer; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  width: 30%;\n  min-width: 300px !important;\n  max-height: 85%;\n  margin: 20px;\n  padding: 30px;\n  overflow-y: auto; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n\n.professionalExperience {\n  margin: 20px auto;\n  display: flex;\n  justify-content: center;\n  font-family: inherit; }\n\n.putnamExp {\n  width: 50%;\n  min-width: 250px;\n  overflow-x: auto; }\n\n.self {\n  display: none; }\n\n.putnamFooter {\n  position: absolute;\n  bottom: 10px;\n  width: 100%;\n  text-align: center; }\n\n.school {\n  display: none; }\n\n.expAbout {\n  animation: fadeInUp .4s; }\n\n.expTitle {\n  animation: fadeInUp .6s;\n  color: #0099CC; }\n  .expTitle:hover {\n    cursor: default;\n    color: #0086b3; }\n\n.expSubTitle {\n  animation: fadeInUp .6s;\n  color: #0086b3; }\n  .expSubTitle:hover {\n    cursor: default; }\n\n.accent {\n  font-weight: bold;\n  color: #595959; }\n  .accent:hover {\n    cursor: pointer;\n    color: #595959; }\n\n.subExpPutnam {\n  margin-left: 5px; }\n\n@media all and (max-width: 768px) {\n  /*.emailPanel {\n        display: none;\n    }*/\n  .putnamFooter {\n    display: none; }\n  .word {\n    display: none; }\n  .mainSkills {\n    flex-direction: column;\n    overflow-y: auto; }\n  .flex-Outer {\n    flex-direction: column;\n    align-items: center; }\n  .flex-item {\n    margin: 10% !important;\n    padding: 10% !important; }\n  .fione {\n    border: 1px solid #0099CC;\n    animation: fadeIn .4s;\n    width: 100%; }\n  .fitwo {\n    border: 1px solid #CC0000;\n    animation: fadeIn .5s;\n    width: 100%; }\n  .fithree {\n    border: 1px solid #5cb85c;\n    animation: fadeIn .6s;\n    width: 100%; }\n  .indexCard {\n    height: auto !important;\n    animation: fadeInUp .3s; }\n  .image {\n    width: 170px;\n    height: 170px;\n    display: inline-block;\n    animation: fadeInUp .3s;\n    border-radius: 50%; }\n  .linksPanel {\n    width: 50% !important; }\n  .limitWidth {\n    width: 90% !important; }\n  .navbar {\n    position: sticky !important; } }\n", ""]);
+	exports.push([module.id, "@keyframes Rocking {\n  0% {\n    transform: rotate(7deg); }\n  50% {\n    transform: rotate(-7deg); }\n  100% {\n    transform: rotate(7deg); } }\n\n@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeInUpDown {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  50% {\n    opacity: 1;\n    transform: none; }\n  100% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.notFound {\n  font-size: 25px;\n  color: grey;\n  animation: fadeInUp .2s;\n  display: flex;\n  transition: all 0.15s ease-out;\n  align-self: center; }\n  .notFound:hover {\n    font-size: 20px;\n    cursor: default;\n    transition: all 0.15s ease-out;\n    color: #b30000; }\n\n.notFoundLettering {\n  font-size: 50px;\n  color: #191919;\n  animation: fadeInUp .5s;\n  margin-bottom: 20px;\n  pading-bottom: 20px;\n  transition: all 0.15s ease-out; }\n  .notFoundLettering:hover {\n    transition: all 0.15s ease-out;\n    font-size: 75px;\n    cursor: default;\n    color: #CC0000; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    /*animation: Rocking 1s infinite;*/\n    color: white;\n    cursor: pointer; }\n\n[data-balloon]:after {\n  font-size: 15px !important; }\n\n.copied {\n  padding: 10px;\n  border-radius: 5px;\n  background-color: #191919;\n  position: fixed;\n  bottom: 75px;\n  left: 25px;\n  animation: fadeInUpDown 1.3s;\n  font-size: 20x;\n  color: white;\n  font-family: \"Ubuntu\", sans-serif; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n  .skillTitle:hover {\n    cursor: default !important; }\n\n.expert:hover {\n  color: #5cb85c; }\n\n.proficient:hover {\n  color: #0099CC; }\n\n.competent:hover {\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 100% !important;\n  position: relative;\n  display: flex;\n  align-content: center;\n  justify-content: center;\n  min-height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.justMain {\n  display: flex;\n  flex-direction: column; }\n\n.projFix {\n  min-height: 75vh !important; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.imageAndTitle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center;\n  margin-top: 5%;\n  margin-bottom: 5%; }\n\n.introduction {\n  display: flex;\n  flex: 1;\n  flex-wrap: wrap;\n  flex-direction: column;\n  justify-content: space-around; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: fixed !important;\n  left: 30px;\n  color: grey;\n  font-family: \"Ubuntu\", sans-serif;\n  font-weight: bolder;\n  font-size: 25px;\n  bottom: 30px; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: pointer; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  width: 30%;\n  min-width: 300px !important;\n  max-height: 85%;\n  margin: 20px;\n  padding: 30px;\n  overflow-y: auto; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n\n.professionalExperience {\n  margin: 20px auto;\n  display: flex;\n  justify-content: center;\n  font-family: inherit; }\n\n.putnamExp {\n  width: 50%;\n  min-width: 250px;\n  overflow-x: auto; }\n\n.self {\n  display: none; }\n\n.putnamFooter {\n  position: absolute;\n  bottom: 10px;\n  width: 100%;\n  text-align: center; }\n\n.school {\n  display: none; }\n\n.expAbout {\n  animation: fadeInUp .4s; }\n\n.expTitle {\n  animation: fadeInUp .6s;\n  color: #0099CC; }\n  .expTitle:hover {\n    cursor: default;\n    color: #0086b3; }\n\n.expSubTitle {\n  animation: fadeInUp .6s;\n  color: #0086b3; }\n  .expSubTitle:hover {\n    cursor: default; }\n\n.accent {\n  font-weight: bold;\n  color: #595959; }\n  .accent:hover {\n    cursor: pointer;\n    color: #595959; }\n\n.subExpPutnam {\n  margin-left: 5px; }\n\n.putnamExp::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */ }\n\n@media all and (max-width: 768px) {\n  /*.emailPanel {\r\n      display: none;\r\n  }*/\n  .App {\n    width: 100vw; }\n  body {\n    height: 100vh;\n    background-color: #f7f7f9; }\n  .emailPanel {\n    position: inherit;\n    left: 30px;\n    right: 15px;\n    text-align: right;\n    color: grey;\n    font-family: 'Ubuntu', sans-serif;\n    font-weight: bolder;\n    font-size: 20px;\n    bottom: 15px !important; }\n  [data-balloon]:after {\n    display: none; }\n  [data-balloon-pos=right]:before {\n    display: none !important; }\n  .copied {\n    padding: 10px;\n    border-radius: 5px;\n    background-color: #191919;\n    position: fixed;\n    bottom: 75px;\n    right: 25px !important;\n    left: 65% !important;\n    width: 30%;\n    display: inline-block;\n    animation: fadeInUpDown 1.3s;\n    text-align: center;\n    font-size: 20x;\n    color: white;\n    font-family: 'Ubuntu', sans-serif; }\n  .putnamFooter {\n    display: none; }\n  .word {\n    display: none; }\n  .mainSkills {\n    flex-direction: column;\n    overflow-y: auto; }\n  .flex-Outer {\n    margin: 1% !important;\n    flex-direction: column;\n    align-items: center; }\n  .flex-item {\n    margin: 10% !important;\n    padding: 10% !important; }\n  .fione {\n    border: 1px solid #0099CC;\n    animation: fadeIn .4s;\n    width: 70%; }\n  .fitwo {\n    border: 1px solid #CC0000;\n    animation: fadeIn .5s;\n    width: 70%; }\n  .fithree {\n    border: 1px solid #5cb85c;\n    animation: fadeIn .6s;\n    width: 70%; }\n  .indexCard {\n    height: auto !important;\n    animation: fadeInUp .3s; }\n  .image {\n    width: 170px;\n    height: 170px;\n    display: inline-block;\n    animation: fadeInUp .3s;\n    border-radius: 50%; }\n  .linksPanel {\n    width: 50% !important; }\n  .limitWidth {\n    width: 90% !important;\n    margin-bottom: 25px !important; }\n  .navbar {\n    position: sticky !important;\n    display: flex;\n    justify-content: center;\n    border-bottom: solid 0.1px #5cb85c; }\n  .nav-item {\n    margin-left: 0px !important;\n    margin-right: 1rem; }\n  .homeBox {\n    margin-bottom: 25px !important; } }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 246 */
+/* 248 */
 /***/ function(module, exports) {
 
 	/*
@@ -27761,7 +27910,7 @@
 
 
 /***/ },
-/* 247 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

@@ -21,7 +21,7 @@ class Skills extends Component {
     }
 
     checkPutnamSkills(){
-      if (location.pathname === "/skills/putnamSkills") {
+      if (location.pathname === "/skills/putnam") {
         this.setState({showResults: true});
       }
       else{
@@ -30,7 +30,7 @@ class Skills extends Component {
     }
 
   render() {
-    if (this.props.params.parent === "putnamSkills") {
+    if (this.props.params.parent === "putnam") {
       var classNames = {
           putnam: this.getClassName('putnam'),
           school: this.getClassName('school'),
