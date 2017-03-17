@@ -391,13 +391,11 @@ body {
 }
 
 .flex-item {
-    width: 30%;
-    min-width: 300px !important;
-    //border-radius: 5px;
-    max-height: 85%;
-    margin: 20px;
-    padding: 30px;
     overflow-y: auto;
+    flex: 3;
+    padding: 20px;
+    margin: 20px;
+    min-width: 300px;
 }
 
 .fione {
@@ -539,6 +537,7 @@ body {
 @media all and (max-width: 768px) {
   /*.emailPanel {
       display: none;
+
   }*/
 
   .App{
@@ -606,29 +605,29 @@ body {
   }
 
 
+  //
+  // .flex-item {
+  //   margin: 10% !important;
+  //   padding: 10% !important;
+  // }
 
-  .flex-item {
-    margin: 10% !important;
-    padding: 10% !important;
-  }
-
-  .fione {
-    border: 1px solid $blue;
-    animation: fadeIn .4s;
-    width: 100%;
-  }
-
-  .fitwo {
-    border: 1px solid $red;
-    animation: fadeIn .5s;
-    width: 100%;
-  }
-
-  .fithree {
-    border: 1px solid $green;
-    animation: fadeIn .6s;
-    width: 100%;
-  }
+  // .fione {
+  //   border: 1px solid $blue;
+  //   animation: fadeIn .4s;
+  //   width: 100%;
+  // }
+  //
+  // .fitwo {
+  //   border: 1px solid $red;
+  //   animation: fadeIn .5s;
+  //   width: 100%;
+  // }
+  //
+  // .fithree {
+  //   border: 1px solid $green;
+  //   animation: fadeIn .6s;
+  //   width: 100%;
+  // }
 
   .panel-projects{
     flex-direction: column;
