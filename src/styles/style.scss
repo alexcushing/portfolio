@@ -146,6 +146,7 @@ body {
     flex:1;
     justify-content: space-around;
     flex-wrap: wrap;
+    flex-direction: row;
   }
 
 .skillTitle {
@@ -604,6 +605,8 @@ body {
     justify-content: center;
   }
 
+
+
   // .flex-item {
   //   margin: 10% !important;
   //   padding: 10% !important;
@@ -626,6 +629,11 @@ body {
   //   animation: fadeIn .6s;
   //   width: 100%;
   // }
+
+  .panel-projects{
+    flex-direction: column;
+    align-items: center;
+  }
 
   .indexCard {
     height: auto !important;
