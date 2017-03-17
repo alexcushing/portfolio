@@ -142,6 +142,7 @@ body {
 }
 
 .panel-projects{
+    padding: 20px;
     display: flex;
     flex:1;
     justify-content: space-around;
@@ -395,7 +396,7 @@ body {
     flex: 3;
     padding: 20px;
     margin: 20px;
-    min-width: 300px;
+    min-width: 250px;
     max-width: 450px;
     width: 300px;
     max-height: 500px;
@@ -638,6 +639,7 @@ body {
   // }
 
   .panel-projects{
+    padding: 0;
     overflow-x: hidden;
     flex-wrap: wrap;
     flex-direction: column;
