@@ -28,7 +28,7 @@ class Projects extends Component {
     return (
       <div>
         <div className="panel panel-default limitWidth homeBox">
-            { this.state.showResults ? <div className="putnamFooter">Putnam Related Projects</div> : null }
+            {/* { this.state.showResults ? <div className="putnamFooter">Putnam Related Projects</div> : null } */}
             <div className="panel-projects">
                 { this.state.showResults ? null : <Project projectName="Prism" url={true} checkPutnam={this.checkPutnam}/> }
                 <Project projectName="AdminPortal" url={false} checkPutnam={this.checkPutnam} />

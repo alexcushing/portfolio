@@ -486,10 +486,9 @@ body {
 }
 
 .putnamFooter{
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .school{

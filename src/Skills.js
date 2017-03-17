@@ -48,7 +48,7 @@ class Skills extends Component {
   return (
       <div>
         <div className="panel panel-default limitWidth homeBox projFix">
-            { this.state.showResults ? <div className="putnamFooter">Putnam Related Skills</div> : null }
+            {/* { this.state.showResults ? <div className="putnamFooter">Putnam Related Skills</div> : null } */}
           <div className="mainSkills">
             <div className="skillBlock">
               <h2 className="skillTitle expert">Expert
