@@ -6,7 +6,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(express.compress());
 app.get('/*/:path', (req, res) => {
     res.redirect('/');
 } );
