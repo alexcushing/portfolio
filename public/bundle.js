@@ -24707,11 +24707,11 @@
 	 */
 	var useQueries = function useQueries(createHistory) {
 	  return function () {
-	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    var history = createHistory(options);
-	    var stringifyQuery = options.stringifyQuery,
-	        parseQueryString = options.parseQueryString;
+	    var stringifyQuery = options.stringifyQuery;
+	    var parseQueryString = options.parseQueryString;
 
 
 	    if (typeof stringifyQuery !== 'function') stringifyQuery = defaultStringifyQuery;
@@ -25058,7 +25058,7 @@
 	exports.__esModule = true;
 	exports.locationsAreEqual = exports.statesAreEqual = exports.createLocation = exports.createQuery = undefined;
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -25081,9 +25081,9 @@
 	};
 
 	var createLocation = exports.createLocation = function createLocation() {
-	  var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '/';
-	  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _Actions.POP;
-	  var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+	  var input = arguments.length <= 0 || arguments[0] === undefined ? '/' : arguments[0];
+	  var action = arguments.length <= 1 || arguments[1] === undefined ? _Actions.POP : arguments[1];
+	  var key = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
 	  var object = typeof input === 'string' ? (0, _PathUtils.parsePath)(input) : input;
 
@@ -25163,10 +25163,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var addQueryStringValueToPath = exports.addQueryStringValueToPath = function addQueryStringValueToPath(path, key, value) {
-	  var _parsePath = parsePath(path),
-	      pathname = _parsePath.pathname,
-	      search = _parsePath.search,
-	      hash = _parsePath.hash;
+	  var _parsePath = parsePath(path);
+
+	  var pathname = _parsePath.pathname;
+	  var search = _parsePath.search;
+	  var hash = _parsePath.hash;
+
 
 	  return createPath({
 	    pathname: pathname,
@@ -25176,10 +25178,12 @@
 	};
 
 	var stripQueryStringValueFromPath = exports.stripQueryStringValueFromPath = function stripQueryStringValueFromPath(path, key) {
-	  var _parsePath2 = parsePath(path),
-	      pathname = _parsePath2.pathname,
-	      search = _parsePath2.search,
-	      hash = _parsePath2.hash;
+	  var _parsePath2 = parsePath(path);
+
+	  var pathname = _parsePath2.pathname;
+	  var search = _parsePath2.search;
+	  var hash = _parsePath2.hash;
+
 
 	  return createPath({
 	    pathname: pathname,
@@ -25191,8 +25195,9 @@
 	};
 
 	var getQueryStringValueFromPath = exports.getQueryStringValueFromPath = function getQueryStringValueFromPath(path, key) {
-	  var _parsePath3 = parsePath(path),
-	      search = _parsePath3.search;
+	  var _parsePath3 = parsePath(path);
+
+	  var search = _parsePath3.search;
 
 	  var match = search.match(new RegExp('[?&]' + key + '=([a-zA-Z0-9]+)'));
 	  return match && match[1];
@@ -25234,10 +25239,10 @@
 	var createPath = exports.createPath = function createPath(location) {
 	  if (location == null || typeof location === 'string') return location;
 
-	  var basename = location.basename,
-	      pathname = location.pathname,
-	      search = location.search,
-	      hash = location.hash;
+	  var basename = location.basename;
+	  var pathname = location.pathname;
+	  var search = location.search;
+	  var hash = location.hash;
 
 	  var path = (basename || '') + pathname;
 
@@ -25269,7 +25274,7 @@
 
 	var useBasename = function useBasename(createHistory) {
 	  return function () {
-	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	    var history = createHistory(options);
 	    var basename = options.basename;
@@ -25279,7 +25284,7 @@
 	      if (!location) return location;
 
 	      if (basename && location.basename == null) {
-	        if (location.pathname.toLowerCase().indexOf(basename.toLowerCase()) === 0) {
+	        if (location.pathname.indexOf(basename) === 0) {
 	          location.pathname = location.pathname.substring(basename.length);
 	          location.basename = basename;
 
@@ -25403,7 +25408,7 @@
 	};
 
 	var createMemoryHistory = function createMemoryHistory() {
-	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	  if (Array.isArray(options)) {
 	    options = { entries: options };
@@ -25470,9 +25475,9 @@
 	    go: go
 	  }));
 
-	  var _options = options,
-	      entries = _options.entries,
-	      current = _options.current;
+	  var _options = options;
+	  var entries = _options.entries;
+	  var current = _options.current;
 
 
 	  if (typeof entries === 'string') {
@@ -25532,13 +25537,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var createHistory = function createHistory() {
-	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	  var getCurrentLocation = options.getCurrentLocation,
-	      getUserConfirmation = options.getUserConfirmation,
-	      pushLocation = options.pushLocation,
-	      replaceLocation = options.replaceLocation,
-	      go = options.go,
-	      keyLength = options.keyLength;
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var getCurrentLocation = options.getCurrentLocation;
+	  var getUserConfirmation = options.getUserConfirmation;
+	  var pushLocation = options.pushLocation;
+	  var replaceLocation = options.replaceLocation;
+	  var go = options.go;
+	  var keyLength = options.keyLength;
 
 
 	  var currentLocation = void 0;
@@ -25667,7 +25672,7 @@
 	  };
 
 	  var createLocation = function createLocation(location, action) {
-	    var key = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : createKey();
+	    var key = arguments.length <= 2 || arguments[2] === undefined ? createKey() : arguments[2];
 	    return (0, _LocationUtils.createLocation)(location, action, key);
 	  };
 
@@ -25907,18 +25912,18 @@
 	 * behavior using { forceRefresh: true } in options.
 	 */
 	var createBrowserHistory = function createBrowserHistory() {
-	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Browser history needs a DOM') : (0, _invariant2.default)(false) : void 0;
 
 	  var useRefresh = options.forceRefresh || !(0, _DOMUtils.supportsHistory)();
 	  var Protocol = useRefresh ? RefreshProtocol : BrowserProtocol;
 
-	  var getUserConfirmation = Protocol.getUserConfirmation,
-	      getCurrentLocation = Protocol.getCurrentLocation,
-	      pushLocation = Protocol.pushLocation,
-	      replaceLocation = Protocol.replaceLocation,
-	      go = Protocol.go;
+	  var getUserConfirmation = Protocol.getUserConfirmation;
+	  var getCurrentLocation = Protocol.getCurrentLocation;
+	  var pushLocation = Protocol.pushLocation;
+	  var replaceLocation = Protocol.replaceLocation;
+	  var go = Protocol.go;
 
 
 	  var history = (0, _createHistory2.default)(_extends({
@@ -26024,9 +26029,8 @@
 
 	var startListener = exports.startListener = function startListener(listener) {
 	  var handlePopState = function handlePopState(event) {
-	    if ((0, _DOMUtils.isExtraneousPopstateEvent)(event)) // Ignore extraneous popstate events in WebKit
-	      return;
-	    listener(_createLocation(event.state));
+	    if (event.state !== undefined) // Ignore extraneous popstate events in WebKit
+	      listener(_createLocation(event.state));
 	  };
 
 	  (0, _DOMUtils.addEventListener)(window, PopStateEvent, handlePopState);
@@ -26049,8 +26053,8 @@
 	};
 
 	var updateLocation = function updateLocation(location, updateState) {
-	  var state = location.state,
-	      key = location.key;
+	  var state = location.state;
+	  var key = location.key;
 
 
 	  if (state !== undefined) (0, _DOMStateStorage.saveState)(key, state);
@@ -26117,15 +26121,6 @@
 	 */
 	var supportsPopstateOnHashchange = exports.supportsPopstateOnHashchange = function supportsPopstateOnHashchange() {
 	  return window.navigator.userAgent.indexOf('Trident') === -1;
-	};
-
-	/**
-	 * Returns true if a given popstate event is an extraneous WebKit event.
-	 * Accounts for the fact that Chrome on iOS fires real popstate events
-	 * containing undefined state when pressing the back button.
-	 */
-	var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
-	  return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
 	};
 
 /***/ },
@@ -26368,12 +26363,12 @@
 	};
 
 	var createHashHistory = function createHashHistory() {
-	  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	  !_ExecutionEnvironment.canUseDOM ? process.env.NODE_ENV !== 'production' ? (0, _invariant2.default)(false, 'Hash history needs a DOM') : (0, _invariant2.default)(false) : void 0;
 
-	  var queryKey = options.queryKey,
-	      hashType = options.hashType;
+	  var queryKey = options.queryKey;
+	  var hashType = options.hashType;
 
 
 	  process.env.NODE_ENV !== 'production' ? (0, _warning2.default)(queryKey !== false, 'Using { queryKey: false } no longer works. Instead, just don\'t ' + 'use location state if you don\'t want a key in your URL query string') : void 0;
@@ -26568,8 +26563,8 @@
 	};
 
 	var updateLocation = function updateLocation(location, pathCoder, queryKey, updateHash) {
-	  var state = location.state,
-	      key = location.key;
+	  var state = location.state;
+	  var key = location.key;
 
 
 	  var path = pathCoder.encodePath((0, _PathUtils.createPath)(location));
@@ -26752,7 +26747,6 @@
 	  _createClass(Contact, [{
 	    key: 'copyToClipboard',
 	    value: function copyToClipboard() {
-	      console.log("in copy");
 	      var email = this.props.value;
 	      (0, _copyToClipboard2.default)(email);
 	      this.setState({ showResults: true });
@@ -27328,11 +27322,6 @@
 	                ),
 	                _react2.default.createElement(
 	                  'li',
-	                  { className: classNames.putnam },
-	                  'Python'
-	                ),
-	                _react2.default.createElement(
-	                  'li',
 	                  { className: classNames.school },
 	                  'C/C++'
 	                )
@@ -27353,17 +27342,17 @@
 	                _react2.default.createElement(
 	                  'li',
 	                  { className: classNames.self },
-	                  'ReactJS'
-	                ),
-	                _react2.default.createElement(
-	                  'li',
-	                  { className: classNames.putnam },
-	                  'Django'
+	                  'React.js'
 	                ),
 	                _react2.default.createElement(
 	                  'li',
 	                  { className: classNames.self },
-	                  'Jade / Pug'
+	                  'Node.js'
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: classNames.putnam },
+	                  'Python / Django'
 	                ),
 	                _react2.default.createElement(
 	                  'li',
@@ -27387,7 +27376,7 @@
 	                _react2.default.createElement(
 	                  'li',
 	                  { className: classNames.self },
-	                  'NodeJS'
+	                  'Jade / Pug'
 	                ),
 	                _react2.default.createElement(
 	                  'li',
@@ -27484,6 +27473,7 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'panel-projects' },
+	                        this.state.showResults ? null : _react2.default.createElement(_project2.default, { projectName: 'Roomio', url: true, checkPutnam: this.checkPutnam }),
 	                        this.state.showResults ? null : _react2.default.createElement(_project2.default, { projectName: 'Prism', url: true, checkPutnam: this.checkPutnam }),
 	                        _react2.default.createElement(_project2.default, { projectName: 'AdminPortal', url: false, checkPutnam: this.checkPutnam }),
 	                        _react2.default.createElement(_project2.default, { projectName: 'SMS', url: false, checkPutnam: this.checkPutnam })
@@ -27601,6 +27591,17 @@
 
 	var Projs = {
 	  projects: [{
+	    projectName: "Roomio",
+	    name: "Roomio",
+	    putnam: "no",
+	    projURL: "https://github.com/tylerjbainbridge/roomio",
+	    outerDivClassName: "flex-item fifour",
+	    headerClassName: "projectsTitle TitleFour",
+	    projName: "Roomio",
+	    lineColorClassName: "line profOrange",
+	    description: "\"Roomio\"  is a webapp that allows users to create and visit rooms they're interested in (ie music / programming etc) and start topics inside of those rooms to chat in. A user may visit the JavaScript room and create a topic titled \"how to start learning JS?\", and then live chat with other users about this.",
+	    Technologies: "React.js, Laravel, Socket.io, SCSS, MySQL"
+	  }, {
 	    projectName: "Prism",
 	    name: "Prism",
 	    putnam: "no",
@@ -27727,6 +27728,10 @@
 	        return _possibleConstructorReturn(this, (Experience.__proto__ || Object.getPrototypeOf(Experience)).call(this, props));
 	    }
 
+			console.warning = function() {}
+			console.log = function() {}
+			console.error = function() {}
+
 	    _createClass(Experience, [{
 	        key: 'render',
 	        value: function render() {
@@ -27838,7 +27843,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ubuntu);", ""]);
 
 	// module
-	exports.push([module.id, "@keyframes Rocking {\n  0% {\n    transform: rotate(7deg); }\n  50% {\n    transform: rotate(-7deg); }\n  100% {\n    transform: rotate(7deg); } }\n\n@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeInUpDown {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  50% {\n    opacity: 1;\n    transform: none; }\n  100% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.notFound {\n  font-size: 25px;\n  color: grey;\n  animation: fadeInUp .2s;\n  display: flex;\n  transition: all 0.15s ease-out;\n  align-self: center; }\n  .notFound:hover {\n    font-size: 20px;\n    cursor: default;\n    transition: all 0.15s ease-out;\n    color: #b30000; }\n\n.notFoundLettering {\n  font-size: 50px;\n  color: #191919;\n  animation: fadeInUp .5s;\n  margin-bottom: 20px;\n  pading-bottom: 20px;\n  transition: all 0.15s ease-out; }\n  .notFoundLettering:hover {\n    transition: all 0.15s ease-out;\n    font-size: 75px;\n    cursor: default;\n    color: #CC0000; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    /*animation: Rocking 1s infinite;*/\n    color: white;\n    cursor: pointer; }\n\n[data-balloon]:after {\n  font-size: 15px !important; }\n\n.copied {\n  padding: 10px;\n  border-radius: 5px;\n  background-color: #191919;\n  position: fixed;\n  bottom: 75px;\n  left: 25px;\n  animation: fadeInUpDown 1.3s;\n  font-size: 20x;\n  color: white;\n  font-family: \"Ubuntu\", sans-serif; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.panel-projects {\n  padding: 20px;\n  display: flex;\n  flex: 1;\n  justify-content: space-around;\n  flex-wrap: wrap;\n  flex-direction: row; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n  .skillTitle:hover {\n    cursor: default !important; }\n\n.expert:hover {\n  color: #5cb85c; }\n\n.proficient:hover {\n  color: #0099CC; }\n\n.competent:hover {\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 100% !important;\n  position: relative;\n  display: flex;\n  align-content: center;\n  justify-content: center;\n  min-height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.justMain {\n  display: flex;\n  flex-direction: column; }\n\n.projFix {\n  min-height: 75vh !important; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.imageAndTitle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center;\n  margin-top: 5%;\n  margin-bottom: 5%; }\n\n.introduction {\n  display: flex;\n  flex: 1;\n  flex-wrap: wrap;\n  flex-direction: column;\n  justify-content: space-around; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: fixed !important;\n  left: 30px;\n  color: grey;\n  font-family: \"Ubuntu\", sans-serif;\n  font-weight: bolder;\n  font-size: 25px;\n  bottom: 30px; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: pointer; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  overflow-y: auto;\n  flex: 3;\n  padding: 20px;\n  margin: 20px;\n  min-width: 250px;\n  max-width: 450px;\n  width: 300px;\n  max-height: 500px; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n\n.professionalExperience {\n  margin: 20px auto;\n  display: flex;\n  justify-content: center;\n  font-family: inherit; }\n\n.putnamExp {\n  width: 50%;\n  min-width: 250px;\n  overflow-x: auto; }\n\n.self {\n  display: none; }\n\n.putnamFooter {\n  text-align: center;\n  display: flex;\n  flex-direction: column-reverse; }\n\n.school {\n  display: none; }\n\n.expAbout {\n  animation: fadeInUp .4s; }\n\n.expTitle {\n  animation: fadeInUp .6s;\n  color: #0099CC; }\n  .expTitle:hover {\n    cursor: default;\n    color: #0086b3; }\n\n.expSubTitle {\n  animation: fadeInUp .6s;\n  color: #0086b3; }\n  .expSubTitle:hover {\n    cursor: default; }\n\n.accent {\n  font-weight: bold;\n  color: #595959; }\n  .accent:hover {\n    cursor: pointer;\n    color: #595959; }\n\n.subExpPutnam {\n  margin-left: 5px; }\n\n.putnamExp::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */ }\n\n@media all and (max-width: 768px) {\n  /*.emailPanel {\r\n      display: none;\r\n\r\n  }*/\n  .App {\n    width: 100vw; }\n  body {\n    height: 100vh;\n    background-color: #f7f7f9; }\n  .emailPanel {\n    position: inherit;\n    left: 30px;\n    right: 15px;\n    text-align: right;\n    color: grey;\n    font-family: 'Ubuntu', sans-serif;\n    font-weight: bolder;\n    font-size: 20px;\n    bottom: 15px !important; }\n  [data-balloon]:after {\n    display: none; }\n  [data-balloon-pos=right]:before {\n    display: none !important; }\n  .copied {\n    padding: 10px;\n    border-radius: 5px;\n    background-color: #191919;\n    position: fixed;\n    bottom: 75px;\n    right: 25px !important;\n    left: 65% !important;\n    width: 30%;\n    display: inline-block;\n    animation: fadeInUpDown 1.3s;\n    text-align: center;\n    font-size: 20x;\n    color: white;\n    font-family: 'Ubuntu', sans-serif; }\n  .putnamFooter {\n    display: none; }\n  .word {\n    display: none; }\n  .mainSkills {\n    flex-direction: column;\n    overflow-y: auto; }\n  .flex-Outer {\n    margin: 1% !important;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .flex-item {\n    overflow-y: auto;\n    flex: 3;\n    padding: 20px;\n    margin: 20px;\n    min-width: 0;\n    max-width: 450px;\n    width: auto;\n    height: 450px;\n    max-height: 1000px; }\n  .panel-projects {\n    padding: 0;\n    overflow-x: hidden;\n    flex-wrap: wrap;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .indexCard {\n    height: auto !important;\n    animation: fadeInUp .3s; }\n  .image {\n    width: 170px;\n    height: 170px;\n    display: inline-block;\n    animation: fadeInUp .3s;\n    border-radius: 50%; }\n  .linksPanel {\n    padding-left: 20%;\n    padding-right: 20%; }\n  .limitWidth {\n    width: 90% !important;\n    margin-bottom: 25px !important; }\n  .navbar {\n    position: sticky !important;\n    display: flex;\n    justify-content: center;\n    border-bottom: solid 0.1px #5cb85c; }\n  .nav-item {\n    margin-left: 0px !important;\n    margin-right: 1rem; }\n  .homeBox {\n    margin-bottom: 25px !important; } }\n", ""]);
+	exports.push([module.id, "@keyframes Rocking {\n  0% {\n    transform: rotate(7deg); }\n  50% {\n    transform: rotate(-7deg); }\n  100% {\n    transform: rotate(7deg); } }\n\n@keyframes fadeInUp {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  100% {\n    opacity: 1;\n    transform: none; } }\n\n@keyframes fadeInUpDown {\n  0% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); }\n  50% {\n    opacity: 1;\n    transform: none; }\n  100% {\n    opacity: 0;\n    transform: translate3d(0, 10%, 0); } }\n\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\nbody {\n  max-width: 100%;\n  width: 100%; }\n\n.notFound {\n  font-size: 25px;\n  color: grey;\n  animation: fadeInUp .2s;\n  display: flex;\n  transition: all 0.15s ease-out;\n  align-self: center; }\n  .notFound:hover {\n    font-size: 20px;\n    cursor: default;\n    transition: all 0.15s ease-out;\n    color: #b30000; }\n\n.notFoundLettering {\n  font-size: 50px;\n  color: #191919;\n  animation: fadeInUp .5s;\n  margin-bottom: 20px;\n  pading-bottom: 20px;\n  transition: all 0.15s ease-out; }\n  .notFoundLettering:hover {\n    transition: all 0.15s ease-out;\n    font-size: 75px;\n    cursor: default;\n    color: #CC0000; }\n\n.nav-link:hover {\n  text-decoration: none !important; }\n\n.icon {\n  color: #f7f7f9;\n  width: 40px;\n  height: 40px; }\n  .icon:hover {\n    /*animation: Rocking 1s infinite;*/\n    color: white;\n    cursor: pointer; }\n\n[data-balloon]:after {\n  font-size: 15px !important; }\n\n.copied {\n  padding: 10px;\n  border-radius: 5px;\n  background-color: #191919;\n  position: fixed;\n  bottom: 75px;\n  left: 25px;\n  animation: fadeInUpDown 1.3s;\n  font-size: 20x;\n  color: white;\n  font-family: \"Ubuntu\", sans-serif; }\n\n.limitWidth {\n  width: 70%;\n  display: flex;\n  align-self: center;\n  margin: 0 auto;\n  margin-top: 25px; }\n\n.panel-projects {\n  padding: 20px;\n  display: flex;\n  flex: 1;\n  justify-content: space-around;\n  flex-wrap: wrap;\n  flex-direction: row; }\n\n.skillTitle {\n  display: flex;\n  align-self: center;\n  justify-content: initial; }\n  .skillTitle:hover {\n    cursor: default !important; }\n\n.expert:hover {\n  color: #5cb85c; }\n\n.proficient:hover {\n  color: #0099CC; }\n\n.competent:hover {\n  color: #FF8800; }\n\n.list {\n  display: block;\n  height: 1px;\n  border: 0;\n  margin: 1em 0;\n  padding: 0; }\n\n.exp {\n  border-top: 1px solid #5cb85c; }\n\n.expRed {\n  border-top: 1px solid #CC0000; }\n\n.prof {\n  border-top: 1px solid #0099CC; }\n\n.profOrange {\n  border-top: 1px solid #FF8800; }\n\n.comp {\n  border-top: 1px solid #FF8800; }\n\n.flex-Outer {\n  margin: 20px;\n  display: flex;\n  align-content: flex-start;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 100%;\n  position: relative; }\n\n.mainSkills {\n  margin: 20px;\n  width: 100%;\n  position: relative;\n  display: flex;\n  align-items: baseline;\n  justify-content: space-around; }\n\n.noBorder {\n  border: none !important;\n  outline: none !important; }\n\n.skillBlock {\n  float: right; }\n  .skillBlock ul {\n    padding: 0;\n    list-style: none; }\n\n.homeBox {\n  height: 100% !important;\n  position: relative;\n  display: flex;\n  align-content: center;\n  justify-content: center;\n  min-height: 75vh !important;\n  background-color: #f7f7f9; }\n\n.justMain {\n  display: flex;\n  flex-direction: column; }\n\n.projFix {\n  min-height: 75vh !important; }\n\n.indexCard {\n  height: 150px !important;\n  animation: fadeInUp .3s; }\n\n.image {\n  width: 200px;\n  height: 200px;\n  display: inline-block;\n  animation: fadeInUp .3s;\n  border-radius: 50%; }\n\n.card-header {\n  background: white !important; }\n\n.imageAndTitle {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center;\n  margin-top: 5%;\n  margin-bottom: 5%; }\n\n.introduction {\n  display: flex;\n  flex: 1;\n  flex-wrap: wrap;\n  flex-direction: column;\n  justify-content: space-around; }\n\n.nameIntro {\n  margin-top: 25px; }\n\n.linksPanel {\n  width: 100%;\n  display: flex;\n  justify-content: space-around;\n  cursor: pointer;\n  animation: fadeInUp .5s; }\n\n.fa-github {\n  color: black !important; }\n\n.linkBasic, .gitLink, .linkedInLink {\n  display: inline;\n  text-decoration: none;\n  width: calc(100%/3);\n  color: black;\n  margin: 0; }\n  .linkBasic:hover, .gitLink:hover, .linkedInLink:hover {\n    text-decoration: none; }\n  .linkBasic:focus, .gitLink:focus, .linkedInLink:focus {\n    text-decoration: none; }\n  .linkBasic:active, .gitLink:active, .linkedInLink:active {\n    text-decoration: none; }\n\n.gitLink {\n  width: 33%; }\n  .gitLink:hover {\n    color: #FF8800; }\n\n.linkedInLink {\n  float: right;\n  text-align: right; }\n  .linkedInLink:hover {\n    color: #0099CC; }\n\n.emailPanel {\n  position: fixed !important;\n  left: 30px;\n  color: grey;\n  font-family: \"Ubuntu\", sans-serif;\n  font-weight: bolder;\n  font-size: 25px;\n  bottom: 30px; }\n  .emailPanel:hover {\n    color: #CC0000;\n    cursor: pointer; }\n\n.namePanel {\n  display: inline-flex;\n  padding: 25px;\n  margin: 5px;\n  text-overflow: ellipsis;\n  overflow-x: hidden; }\n\n.expert {\n  animation: fadeInUp .4s; }\n\n.proficient {\n  animation: fadeInUp .5s; }\n\n.competent {\n  animation: fadeInUp .6s; }\n\n.projTitle {\n  margin: 20px; }\n\n.projDesc {\n  margin: 20px; }\n\n.flex-container {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row-reverse;\n  flex-direction: row-reverse;\n  width: 400px;\n  height: 250px;\n  background-color: lightgrey; }\n\n.flex-item {\n  overflow-y: auto;\n  flex: 3;\n  padding: 20px;\n  margin: 20px;\n  min-width: 250px;\n  max-width: 450px;\n  width: 300px;\n  max-height: 500px; }\n\n.fione {\n  border: 1px solid #0099CC;\n  animation: fadeIn .4s; }\n\n.fitwo {\n  border: 1px solid #CC0000;\n  animation: fadeIn .5s; }\n\n.fithree {\n  border: 1px solid #5cb85c;\n  animation: fadeIn .6s; }\n\n.fifour {\n  border: 1px solid #FF8800;\n  animation: fadeIn .6s; }\n\n.TitleOne {\n  animation: fadeInUp .4s; }\n\n.TitleTwo {\n  animation: fadeInUp .5s; }\n\n.TitleThree {\n  animation: fadeInUp .6s; }\n\n.TitleFour {\n  animation: fadeInUp .2s; }\n\n.projectsTitle {\n  font-weight: bold;\n  cursor: default; }\n\n.seamlessLink {\n  color: #0099CC; }\n  .seamlessLink:hover {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:active {\n    text-decoration: none;\n    color: #CC0000; }\n  .seamlessLink:focus {\n    text-decoration: none;\n    color: #CC0000; }\n\n.seamlessLinkPrism {\n  color: black; }\n  .seamlessLinkPrism:hover {\n    cursor: pointer !important;\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:active {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism:focus {\n    text-decoration: none;\n    color: #0099CC; }\n  .seamlessLinkPrism .projectsTitle:hover {\n    cursor: pointer !important; }\n\n.professionalExperience {\n  margin: 20px auto;\n  display: flex;\n  justify-content: center;\n  font-family: inherit; }\n\n.putnamExp {\n  width: 50%;\n  min-width: 250px;\n  overflow-x: auto; }\n\n.self {\n  display: none; }\n\n.putnamFooter {\n  text-align: center;\n  display: flex;\n  flex-direction: column-reverse; }\n\n.school {\n  display: none; }\n\n.expAbout {\n  animation: fadeInUp .4s; }\n\n.expTitle {\n  animation: fadeInUp .6s;\n  color: #0099CC; }\n  .expTitle:hover {\n    cursor: default;\n    color: #0086b3; }\n\n.expSubTitle {\n  animation: fadeInUp .6s;\n  color: #0086b3; }\n  .expSubTitle:hover {\n    cursor: default; }\n\n.accent {\n  font-weight: bold;\n  color: #595959; }\n  .accent:hover {\n    cursor: pointer;\n    color: #595959; }\n\n.subExpPutnam {\n  margin-left: 5px; }\n\n.putnamExp::-webkit-scrollbar {\n  width: 0px;\n  /* remove scrollbar space */\n  background: transparent;\n  /* optional: just make scrollbar invisible */ }\n\n@media all and (max-width: 768px) {\n  /*.emailPanel {\n      display: none;\n\n  }*/\n  .App {\n    width: 100vw; }\n  body {\n    height: 100vh;\n    background-color: #f7f7f9; }\n  .emailPanel {\n    position: inherit;\n    left: 30px;\n    right: 15px;\n    text-align: right;\n    color: grey;\n    font-family: 'Ubuntu', sans-serif;\n    font-weight: bolder;\n    font-size: 20px;\n    bottom: 15px !important; }\n  [data-balloon]:after {\n    display: none; }\n  [data-balloon-pos=right]:before {\n    display: none !important; }\n  .copied {\n    padding: 10px;\n    border-radius: 5px;\n    background-color: #191919;\n    position: fixed;\n    bottom: 75px;\n    right: 25px !important;\n    left: 65% !important;\n    width: 30%;\n    display: inline-block;\n    animation: fadeInUpDown 1.3s;\n    text-align: center;\n    font-size: 20x;\n    color: white;\n    font-family: 'Ubuntu', sans-serif; }\n  .putnamFooter {\n    display: none; }\n  .word {\n    display: none; }\n  .mainSkills {\n    flex-direction: column;\n    overflow-y: auto; }\n  .flex-Outer {\n    margin: 1% !important;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .flex-item {\n    overflow-y: auto;\n    flex: 3;\n    padding: 20px;\n    margin: 20px;\n    min-width: 0;\n    max-width: 450px;\n    width: auto;\n    height: 450px;\n    max-height: 1000px; }\n  .panel-projects {\n    padding: 0;\n    overflow-x: hidden;\n    flex-wrap: wrap;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .indexCard {\n    height: auto !important;\n    animation: fadeInUp .3s; }\n  .image {\n    width: 170px;\n    height: 170px;\n    display: inline-block;\n    animation: fadeInUp .3s;\n    border-radius: 50%; }\n  .linksPanel {\n    padding-left: 20%;\n    padding-right: 20%; }\n  .limitWidth {\n    width: 90% !important;\n    margin-bottom: 25px !important; }\n  .navbar {\n    position: sticky !important;\n    display: flex;\n    justify-content: center;\n    border-bottom: solid 0.1px #5cb85c; }\n  .nav-item {\n    margin-left: 0px !important;\n    margin-right: 1rem; }\n  .homeBox {\n    margin-bottom: 25px !important; } }\n", ""]);
 
 	// exports
 

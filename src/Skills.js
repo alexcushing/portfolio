@@ -68,9 +68,6 @@ class Skills extends Component {
                 <li className={classNames.putnam}>
                   HTML5
                 </li>
-                  <li className={classNames.putnam}>
-                    Python
-                  </li>
                 <li className={classNames.school}>
                   C/C++
                 </li>
@@ -80,16 +77,15 @@ class Skills extends Component {
               <h2 className="skillTitle proficient">Proficient</h2>
             <hr className ="line prof"/>
               <ul>
-
                 <li className={classNames.self}>
-                  ReactJS
-                </li>
-                  <li className={classNames.putnam}>
-                    Django
+                    React.js
                   </li>
                 <li className={classNames.self}>
-                  Jade / Pug
+                  Node.js
                 </li>
+                  <li className={classNames.putnam}>
+                    Python / Django
+                  </li>
                 <li className={classNames.self}>
                   MongoDB
                 </li>
@@ -99,9 +95,9 @@ class Skills extends Component {
               <h2 className="skillTitle competent">Competent</h2>
                 <hr className ="line comp"/>
               <ul>
-                  <li className={classNames.self}>
-                    NodeJS
-                  </li>
+                <li className={classNames.self}>
+                  Jade / Pug
+                </li>
                 <li className={classNames.putnam}>
                   SQL
                 </li>

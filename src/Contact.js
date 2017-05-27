@@ -11,7 +11,6 @@ class Contact extends Component {
 
 
     copyToClipboard(){
-      console.log("in copy");
       const email = this.props.value;
       copy(email);
       this.setState({ showResults: true });

@@ -198,6 +198,10 @@ body {
     border-top: 1px solid $blue;
 }
 
+.profOrange {
+    border-top: 1px solid $orange;
+}
+
 .comp {
     border-top: 1px solid $orange;
 }
@@ -417,6 +421,11 @@ body {
     animation: fadeIn .6s;
 }
 
+.fifour {
+    border: 1px solid $orange;
+    animation: fadeIn .6s;
+}
+
 .TitleOne {
     animation: fadeInUp .4s;
 }
@@ -427,6 +436,10 @@ body {
 
 .TitleThree {
     animation: fadeInUp .6s;
+}
+
+.TitleFour {
+    animation: fadeInUp .2s;
 }
 
 .projectsTitle {

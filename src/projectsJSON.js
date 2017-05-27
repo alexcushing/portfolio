@@ -2,6 +2,17 @@
 const Projs =
 {
   projects: [{
+    projectName: "Roomio",
+    name: "Roomio",
+    putnam: "no",
+    projURL: "https://github.com/tylerjbainbridge/roomio",
+    outerDivClassName: "flex-item fifour",
+    headerClassName: "projectsTitle TitleFour",
+    projName: "Roomio",
+    lineColorClassName: "line profOrange",
+    description: "\"Roomio\"  is a webapp that allows users to create and visit rooms they're interested in (ie music / programming etc) and start topics inside of those rooms to chat in. A user may visit the JavaScript room and create a topic titled \"how to start learning JS?\", and then live chat with other users about this.",
+    Technologies: "React.js, Laravel, Socket.io, SCSS, MySQL"
+  }, {
     projectName: "Prism",
     name: "Prism",
     putnam: "no",
